@@ -78,6 +78,46 @@
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="full-width.html" />
+    <Content Include="gallery.html" />
+    <Content Include="images\arrow.gif" />
+    <Content Include="images\bg_direction_nav.png" />
+    <Content Include="images\black_file.gif" />
+    <Content Include="images\demo\166x130.gif" />
+    <Content Include="images\demo\225x225.gif" />
+    <Content Include="images\demo\440x190.gif" />
+    <Content Include="images\demo\48x48.gif" />
+    <Content Include="images\demo\60x60.gif" />
+    <Content Include="images\demo\960x360.gif" />
+    <Content Include="images\demo\avatar.gif" />
+    <Content Include="images\demo\imgl.gif" />
+    <Content Include="images\demo\imgr.gif" />
+    <Content Include="images\demo\index.html" />
+    <Content Include="images\index.html" />
+    <Content Include="images\orange_file.gif" />
+    <Content Include="index.html" />
+    <Content Include="licence.txt" />
+    <Content Include="portfolio.html" />
+    <Content Include="scripts\css3-mediaqueries.min.js" />
+    <Content Include="scripts\html5shiv.min.js" />
+    <Content Include="scripts\index.html" />
+    <Content Include="scripts\jquery-1.7.2.min.js" />
+    <Content Include="scripts\jquery-flexslider-setup.js" />
+    <Content Include="scripts\jquery-flexslider.min.js" />
+    <Content Include="scripts\jquery-mobilemenu.min.js" />
+    <Content Include="style-demo.html" />
+    <Content Include="styles\flexslider.css" />
+    <Content Include="styles\forms.css" />
+    <Content Include="styles\framework.css" />
+    <Content Include="styles\gallery.css" />
+    <Content Include="styles\homepage.css" />
+    <Content Include="styles\ie.css" />
+    <Content Include="styles\index.html" />
+    <Content Include="styles\layout.css" />
+    <Content Include="styles\mediaqueries.css" />
+    <Content Include="styles\navi.css" />
+    <Content Include="styles\portfolio.css" />
+    <Content Include="styles\tables.css" />
     <Content Include="web.config" />
     <Content Include="Master\Marketing.Master" />
     <Content Include="connectionstrings.config" />
@@ -118,7 +158,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

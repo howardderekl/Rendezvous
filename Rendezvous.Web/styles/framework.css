@@ -1,0 +1,153 @@
+/*
+Responsive Template Name: RS-Fusion V.1
+File: 960px Framework CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+/* #################################################################################################### */
+/* ############### PLEASE READ THE FOLLOWING TO UNDERSTAND THIS DOCUMENT ############################## */
+/* ###############  FEEL FREE TO DELETE THE INSTRUCTIONS IF NOT NEEDED   ############################## */
+/* #################################################################################################### */
+
+/*
+The following should help you understand how to work out the box size for a 960px responsive max-width layout.
+
+Step 1:
+
+We start out with a fixed width - in this case it is 960px
+
+We set our distance between each box (margin / gutter) - in this case it is 20px
+
+We now start to do some math.
+
+Step 2:
+
+First we find out what 20px in percentage is: 20px ÷ 960px × 100 = 2.08333%
+
+Step 3:
+
+We now decide on how many elements / sections / boxes we want to use and how they will look - our instance has 1, 2, 3, 4 & 5 box sections
+
+To illustrate how these elements will work, we use the following demonstration:
+
+   1. box
+   2. box | margin | box
+   3. box | margin | box | margin | box
+   4. box | margin | box | margin | box | margin | box
+   5. box | margin | box | margin | box | margin | box | margin | box
+
+Step 4:
+
+Now we work out the width of each box for each situation.
+
+For the following demonstration we have completed the math for the points 2 & 3 from the above list:
+
+WORKING OUT ONE HALF: ( box | margin | box )
+
+Fixed width minus the gutter / margin, divide the result by two and your finished:
+960px - 20px = 940px ÷ 2 = 470px
+
+To work out the Responsive / fluid width we use the result from the fixed width:
+470px ÷ 960px × 100 = 48.95833%
+
+WORKING OUT ONE THIRD: ( box | margin | box | margin | box )
+
+Here we have double the margin, so we need to double the margin measurement in our equation
+
+Fixed width minus 2 × margin, divide the result by three and your finished:
+960px - 40px ÷ 3 = 306.66666px
+
+To work out the Responsive / fluid width we use the result from the fixed width:
+306.66666px ÷ 960px × 100 = 31.94444%
+
+So now we have an end result that mathematically looks like:
+
+31.94444% | 2.08333% | 31.94444% | 2.08333% | 31.94444%
+
+Step 5:
+
+Now that we have worked out the measurement for one element box we can work out the sum of multiple boxes:
+
+For our example we use the "One Third" result from above, basically one box with a margin and two boxes combined together, using our visual help we go from:
+
+box | margin | box | margin | box   => to =>   box | margin | boxbox
+
+1 box = 960px - 40px ÷ 3 = 306.66666px
+
+2 boxes = width of 1 box × 2 + the width of one margin (the margin is no-longer in use so it is added to the width of the two boxes)
+
+2 boxes = 306.66666px × 2 + 20px = 633.33332px
+
+The responsive width is found using the above result:
+
+633.33332px ÷ 960px × 100 = 65.97222%
+
+So now we have an end result that mathematically looks like:
+
+31.94444% | 2.08333% | 65.97222%
+*/
+
+.one_half, 
+.one_third, .two_third, 
+.one_quarter, .two_quarter, .three_quarter, 
+.one_fifth, .two_fifth, .three_fifth, .four_fifth{display:inline-block; float:left; margin:0 0 0 2.08333%; list-style:none;}
+
+.first, 
+.one_half:first-child, 
+.one_third:first-child, .two_third:first-child, 
+.one_quarter:first-child, .two_quarter:first-child, .three_quarter:first-child, 
+.one_fifth:first-child, .two_fifth:first-child, .three_fifth:first-child, .four_fifth:first-child{margin-left:0;}
+
+.two_half, .three_third, .four_quarter, .five_fifth{display:block; width:100%; clear:both;}
+
+/*----------------------------------------------Half Grid-------------------------------------*/
+
+/*
+.one_half{width:470px;} => 470 ÷ 960 = 0.4895833 * 100 = 48.95833
+.two_half{width:960px;} => 960 ÷ 960 = 1 * 100 = 100
+*/
+
+.one_half{width:48.95833%;}
+
+/*----------------------------------------------Third Grid-------------------------------------*/
+
+/*
+.one_third{width:306.66666px;} => 306.66666 ÷ 960 = 0.3194444 * 100 = 31.94444
+.two_third{width:633.33332px;} => 643.33332 ÷ 960 = 0.6597221 * 100 = 65.97221
+.three_third{width:960px;} => 960 ÷ 960 = 1 * 100 = 100
+*/
+
+.one_third{width:31.94444%;}
+.two_third{width:65.97222%;}
+
+
+/*----------------------------------------------Quarter Grid-------------------------------------*/
+
+/*
+.one_quarter{width:225px;} => 225 ÷ 960 = 0.234375 * 100 = 23.4375
+.two_quarter{width:470px;} => 470 ÷ 960 = 0.4895833 * 100 = 48.95833
+.three_quarter{width:715px;} => 715 ÷ 960 = 0.7447916 * 100 = 74.47916
+.four_quarter{width:960px;} => 960 ÷ 960 = 1 * 100 = 100
+*/
+
+.one_quarter{width:23.4375%;}
+.two_quarter{width:48.95833%;}
+.three_quarter{width:74.47916%;}
+
+
+/*----------------------------------------------Fifth Grid-------------------------------------*/
+
+/*
+.one_fifth{width:176px;} => 176 ÷ 960 = 0.1833333 * 100 = 18.33333
+.two_fifth{width:372px;} => 372 ÷ 960 = 0.3875 * 100 = 38.75
+.three_fifth{width:568px;} => 568 ÷ 960 = 0.5916666 * 100 = 59.16666
+.four_fifth{width:764px;} => 764 ÷ 960 = 0.7958333 * 100 = 79.58333
+.five_fifth{width:960px;} => 960 ÷ 960 = 1 * 100 = 100
+*/
+
+.one_fifth{width:18.33333%;}
+.two_fifth{width:38.75%;}
+.three_fifth{width:59.16666%;}
+.four_fifth{width:79.58333%;}

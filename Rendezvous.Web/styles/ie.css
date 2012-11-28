@@ -1,0 +1,25 @@
+/*
+Responsive Template Name: RS-Fusion V.1
+File: IE CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+#featured_slide .flexslider, #featured_slide .flexslider .slides, #featured_slide .flex-control-nav li{zoom:1;}
+#featured_slide .flex-direction-nav{height:0;}
+
+.one_half, .two_half, 
+.one_third, .two_third, .three_third, 
+.one_quarter, .two_quarter, .three_quarter, .four_quarter, 
+.one_fifth, .two_fifth, .three_fifth, .four_fifth, .five_fifth{margin:0 0 0 2%;}
+
+.first{margin-left:0;}
+
+@media screen and (min-width: 960px) {
+	#footer .ft_gallery li{display:block; float:left; margin:0 0 5% 0;}
+}
+
+@media screen and (max-width: 480px) {
+	#footer .ft_gallery li img{display:block; float:left; width:auto; margin:0 3% 3% 0; clear:left;}
+}
