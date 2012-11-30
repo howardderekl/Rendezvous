@@ -157,7 +157,9 @@
     <Content Include="styles\navi.css" />
     <Content Include="styles\portfolio.css" />
     <Content Include="styles\tables.css" />
-    <Content Include="web.config" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Master\Marketing.Master" />
     <Content Include="connectionstrings.config" />
     <None Include="web.Debug.config">
@@ -197,7 +199,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
