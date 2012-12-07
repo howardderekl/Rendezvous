@@ -130,6 +130,7 @@
     <Content Include="images\demo\60x60.gif" />
     <Content Include="images\demo\960x360.gif" />
     <Content Include="images\demo\avatar.gif" />
+    <Content Include="images\demo\Home_sample2.jpg" />
     <Content Include="images\demo\imgl.gif" />
     <Content Include="images\demo\imgr.gif" />
     <Content Include="images\demo\index.html" />
@@ -199,7 +200,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

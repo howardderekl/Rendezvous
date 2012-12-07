@@ -14,7 +14,7 @@
         <section class="flexslider">
           <ul class="slides">
             <li>
-              <figure><a href="#"><img src="images/demo/960x360.gif" alt=""></a>
+              <figure><a href="#"><img src="images/demo/Home_sample2.jpg" alt=""></a>
                 <figcaption class="flex-caption">
                   <h2>Slide 1 Caption</h2>
                   <p>Dapiensociis temper donec auctortortis cumsan et curabitur condis lorem loborttis leo.</p>
