@@ -22,7 +22,7 @@ nav ul{margin:0; padding:0; list-style:none;}
 #topnav ul ul a{width:140px;}
 #topnav li:hover ul{left:auto;}
 #topnav li:hover{position:static;}
-#topnav li.last{margin-right:0;}
+#topnav li.rmLast{margin-right:0;}
 
 /* Top navigation for smaller resolutions */
 

@@ -22,6 +22,33 @@ namespace Rendezvous.Web.Master {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cphHead;
         
         /// <summary>
+        /// rsmMasterScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptManager rsmMasterScriptManager;
+        
+        /// <summary>
+        /// hlHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlHome;
+        
+        /// <summary>
+        /// MarketingNavigation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Rendezvous.Web.Navigation.Marketing MarketingNavigation;
+        
+        /// <summary>
         /// cphBody control.
         /// </summary>
         /// <remarks>

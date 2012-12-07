@@ -25,8 +25,20 @@ namespace Rendezvous.Web
 			HttpContext.Current.Application["RouteList"] = new List<string>();
 
 			AddGeneralRoute("Gallery", "Gallery", "~/gallery.html");
-			AddGeneralRoute("Home", "Home", "~/Default.aspx");
+			
+            AddGeneralRoute("Home", "Home", "~/Default.aspx");
+            AddGeneralRoute("AboutUs", "AboutUs", "~/AboutUs.aspx");
+            AddGeneralRoute("ContactUs", "ContactUs", "~/ContactUs.aspx");
 
+            AddGeneralRoute("Projects", "Projects", "~/Projects/Default.aspx");
+
+            AddGeneralRoute("Testimonials", "Testimonials", "~/Testimonials/Default.aspx");
+
+            AddGeneralRoute("OurProcess", "OurProcess", "~/OurProcess/Default.aspx");
+            
+            AddGeneralRoute("Partners", "Partners", "~/Partners/Default.aspx");
+
+            
 			//AddPageWithIdRoute("EditBatch", "Batches/{id}", "~/BatchPages/EditBatch.aspx");
 
 			
