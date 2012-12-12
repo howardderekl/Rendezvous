@@ -30,7 +30,8 @@
     <asp:ContentPlaceHolder runat="server" ID="cphHead" />
 </head>
 <body>
-    <telerik:RadScriptManager ID="rsmMasterScriptManager" runat="server"></telerik:RadScriptManager>
+    <form id="form1" runat="server">
+<telerik:RadScriptManager ID="RadScriptManager1" Runat="server"></telerik:RadScriptManager>
 <div class="wrapper row1">
   <header id="header" class="clear">
     <hgroup class="pad">
@@ -142,5 +143,6 @@
     </div>
   </footer>
 </div>
+    </form>
 </body>
 </html>
