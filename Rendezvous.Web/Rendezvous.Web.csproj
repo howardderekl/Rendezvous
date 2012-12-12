@@ -193,6 +193,7 @@
     <Content Include="Partners\Default.aspx" />
     <Content Include="portfolio.html" />
     <Content Include="Projects\Default.aspx" />
+    <Content Include="Projects\images\DTESTATE\Home1.jpg" />
     <Content Include="scripts\css3-mediaqueries.min.js" />
     <Content Include="scripts\html5shiv.min.js" />
     <Content Include="scripts\index.html" />
@@ -227,6 +228,10 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Projects\images\JKFARM\" />
+    <Folder Include="Projects\images\SMFRETIRE\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -257,7 +262,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

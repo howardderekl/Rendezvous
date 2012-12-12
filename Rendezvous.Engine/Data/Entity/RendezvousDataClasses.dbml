@@ -1,1 +1,74 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Class="RendezvousDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Rendezvous" Class="RendezvousDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Rendezvous;Persist Security Info=True;User ID=webuser" SettingsObjectName="Rendezvous.Engine.Properties.Settings" SettingsPropertyName="RendezvousConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Partner" Member="Partners">
+    <Type Name="Partner">
+      <Column Name="PartnerKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartnerTypeKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="WebsiteURL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Partner_ProjectPartner" Member="ProjectPartners" ThisKey="PartnerKey" OtherKey="PartnerKey" Type="ProjectPartner" />
+      <Association Name="PartnerType_Partner" Member="PartnerType" ThisKey="PartnerTypeKey" OtherKey="PartnerTypeKey" Type="PartnerType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Testimonial" Member="Testimonials">
+    <Type Name="Testimonial">
+      <Column Name="TestimonialKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Project_Testimonial" Member="Project" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PartnerType" Member="PartnerTypes">
+    <Type Name="PartnerType">
+      <Column Name="PartnerTypeKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="PartnerType_Partner" Member="Partners" ThisKey="PartnerTypeKey" OtherKey="PartnerTypeKey" Type="Partner" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ProjectKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectTypeKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CompletionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Project_Testimonial" Member="Testimonials" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Testimonial" />
+      <Association Name="Project_ProjectImage" Member="ProjectImages" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="ProjectImage" />
+      <Association Name="Project_ProjectPartner" Member="ProjectPartners" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="ProjectPartner" />
+      <Association Name="ProjectType_Project" Member="ProjectType" ThisKey="ProjectTypeKey" OtherKey="ProjectTypeKey" Type="ProjectType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectImage" Member="ProjectImages">
+    <Type Name="ProjectImage">
+      <Column Name="ProjectImageKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultImage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Project_ProjectImage" Member="Project" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectPartner" Member="ProjectPartners">
+    <Type Name="ProjectPartner">
+      <Column Name="ProjectPartnerKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartnerKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Partner_ProjectPartner" Member="Partner" ThisKey="PartnerKey" OtherKey="PartnerKey" Type="Partner" IsForeignKey="true" />
+      <Association Name="Project_ProjectPartner" Member="Project" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectType" Member="ProjectTypes">
+    <Type Name="ProjectType">
+      <Column Name="ProjectTypeKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="ProjectType_Project" Member="Projects" ThisKey="ProjectTypeKey" OtherKey="ProjectTypeKey" Type="Project" />
+    </Type>
+  </Table>
+</Database>

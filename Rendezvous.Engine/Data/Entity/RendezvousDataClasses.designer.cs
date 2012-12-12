@@ -22,6 +22,7 @@ namespace Rendezvous.Engine.Data.Entity
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Rendezvous")]
 	public partial class RendezvousDataClassesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -29,7 +30,34 @@ namespace Rendezvous.Engine.Data.Entity
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertPartner(Partner instance);
+    partial void UpdatePartner(Partner instance);
+    partial void DeletePartner(Partner instance);
+    partial void InsertTestimonial(Testimonial instance);
+    partial void UpdateTestimonial(Testimonial instance);
+    partial void DeleteTestimonial(Testimonial instance);
+    partial void InsertPartnerType(PartnerType instance);
+    partial void UpdatePartnerType(PartnerType instance);
+    partial void DeletePartnerType(PartnerType instance);
+    partial void InsertProject(Project instance);
+    partial void UpdateProject(Project instance);
+    partial void DeleteProject(Project instance);
+    partial void InsertProjectImage(ProjectImage instance);
+    partial void UpdateProjectImage(ProjectImage instance);
+    partial void DeleteProjectImage(ProjectImage instance);
+    partial void InsertProjectPartner(ProjectPartner instance);
+    partial void UpdateProjectPartner(ProjectPartner instance);
+    partial void DeleteProjectPartner(ProjectPartner instance);
+    partial void InsertProjectType(ProjectType instance);
+    partial void UpdateProjectType(ProjectType instance);
+    partial void DeleteProjectType(ProjectType instance);
     #endregion
+		
+		public RendezvousDataClassesDataContext() : 
+				base(global::Rendezvous.Engine.Properties.Settings.Default.RendezvousConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public RendezvousDataClassesDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +81,1486 @@ namespace Rendezvous.Engine.Data.Entity
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Partner> Partners
+		{
+			get
+			{
+				return this.GetTable<Partner>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Testimonial> Testimonials
+		{
+			get
+			{
+				return this.GetTable<Testimonial>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PartnerType> PartnerTypes
+		{
+			get
+			{
+				return this.GetTable<PartnerType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Project> Projects
+		{
+			get
+			{
+				return this.GetTable<Project>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProjectImage> ProjectImages
+		{
+			get
+			{
+				return this.GetTable<ProjectImage>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProjectPartner> ProjectPartners
+		{
+			get
+			{
+				return this.GetTable<ProjectPartner>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProjectType> ProjectTypes
+		{
+			get
+			{
+				return this.GetTable<ProjectType>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Partner")]
+	public partial class Partner : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PartnerKey;
+		
+		private int _PartnerTypeKey;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private string _WebsiteURL;
+		
+		private EntitySet<ProjectPartner> _ProjectPartners;
+		
+		private EntityRef<PartnerType> _PartnerType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartnerKeyChanging(int value);
+    partial void OnPartnerKeyChanged();
+    partial void OnPartnerTypeKeyChanging(int value);
+    partial void OnPartnerTypeKeyChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnWebsiteURLChanging(string value);
+    partial void OnWebsiteURLChanged();
+    #endregion
+		
+		public Partner()
+		{
+			this._ProjectPartners = new EntitySet<ProjectPartner>(new Action<ProjectPartner>(this.attach_ProjectPartners), new Action<ProjectPartner>(this.detach_ProjectPartners));
+			this._PartnerType = default(EntityRef<PartnerType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PartnerKey
+		{
+			get
+			{
+				return this._PartnerKey;
+			}
+			set
+			{
+				if ((this._PartnerKey != value))
+				{
+					this.OnPartnerKeyChanging(value);
+					this.SendPropertyChanging();
+					this._PartnerKey = value;
+					this.SendPropertyChanged("PartnerKey");
+					this.OnPartnerKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerTypeKey", DbType="Int NOT NULL")]
+		public int PartnerTypeKey
+		{
+			get
+			{
+				return this._PartnerTypeKey;
+			}
+			set
+			{
+				if ((this._PartnerTypeKey != value))
+				{
+					if (this._PartnerType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartnerTypeKeyChanging(value);
+					this.SendPropertyChanging();
+					this._PartnerTypeKey = value;
+					this.SendPropertyChanged("PartnerTypeKey");
+					this.OnPartnerTypeKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WebsiteURL", DbType="VarChar(100)")]
+		public string WebsiteURL
+		{
+			get
+			{
+				return this._WebsiteURL;
+			}
+			set
+			{
+				if ((this._WebsiteURL != value))
+				{
+					this.OnWebsiteURLChanging(value);
+					this.SendPropertyChanging();
+					this._WebsiteURL = value;
+					this.SendPropertyChanged("WebsiteURL");
+					this.OnWebsiteURLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partner_ProjectPartner", Storage="_ProjectPartners", ThisKey="PartnerKey", OtherKey="PartnerKey")]
+		public EntitySet<ProjectPartner> ProjectPartners
+		{
+			get
+			{
+				return this._ProjectPartners;
+			}
+			set
+			{
+				this._ProjectPartners.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PartnerType_Partner", Storage="_PartnerType", ThisKey="PartnerTypeKey", OtherKey="PartnerTypeKey", IsForeignKey=true)]
+		public PartnerType PartnerType
+		{
+			get
+			{
+				return this._PartnerType.Entity;
+			}
+			set
+			{
+				PartnerType previousValue = this._PartnerType.Entity;
+				if (((previousValue != value) 
+							|| (this._PartnerType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PartnerType.Entity = null;
+						previousValue.Partners.Remove(this);
+					}
+					this._PartnerType.Entity = value;
+					if ((value != null))
+					{
+						value.Partners.Add(this);
+						this._PartnerTypeKey = value.PartnerTypeKey;
+					}
+					else
+					{
+						this._PartnerTypeKey = default(int);
+					}
+					this.SendPropertyChanged("PartnerType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProjectPartners(ProjectPartner entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partner = this;
+		}
+		
+		private void detach_ProjectPartners(ProjectPartner entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partner = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Testimonial")]
+	public partial class Testimonial : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TestimonialKey;
+		
+		private System.DateTime _CreateDate;
+		
+		private string _Name;
+		
+		private string _Note;
+		
+		private System.Nullable<int> _ProjectKey;
+		
+		private EntityRef<Project> _Project;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTestimonialKeyChanging(int value);
+    partial void OnTestimonialKeyChanged();
+    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnProjectKeyChanging(System.Nullable<int> value);
+    partial void OnProjectKeyChanged();
+    #endregion
+		
+		public Testimonial()
+		{
+			this._Project = default(EntityRef<Project>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TestimonialKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TestimonialKey
+		{
+			get
+			{
+				return this._TestimonialKey;
+			}
+			set
+			{
+				if ((this._TestimonialKey != value))
+				{
+					this.OnTestimonialKeyChanging(value);
+					this.SendPropertyChanging();
+					this._TestimonialKey = value;
+					this.SendPropertyChanged("TestimonialKey");
+					this.OnTestimonialKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(100)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectKey", DbType="Int")]
+		public System.Nullable<int> ProjectKey
+		{
+			get
+			{
+				return this._ProjectKey;
+			}
+			set
+			{
+				if ((this._ProjectKey != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectKey = value;
+					this.SendPropertyChanged("ProjectKey");
+					this.OnProjectKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Testimonial", Storage="_Project", ThisKey="ProjectKey", OtherKey="ProjectKey", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.Testimonials.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.Testimonials.Add(this);
+						this._ProjectKey = value.ProjectKey;
+					}
+					else
+					{
+						this._ProjectKey = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PartnerType")]
+	public partial class PartnerType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PartnerTypeKey;
+		
+		private string _Title;
+		
+		private EntitySet<Partner> _Partners;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartnerTypeKeyChanging(int value);
+    partial void OnPartnerTypeKeyChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    #endregion
+		
+		public PartnerType()
+		{
+			this._Partners = new EntitySet<Partner>(new Action<Partner>(this.attach_Partners), new Action<Partner>(this.detach_Partners));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerTypeKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PartnerTypeKey
+		{
+			get
+			{
+				return this._PartnerTypeKey;
+			}
+			set
+			{
+				if ((this._PartnerTypeKey != value))
+				{
+					this.OnPartnerTypeKeyChanging(value);
+					this.SendPropertyChanging();
+					this._PartnerTypeKey = value;
+					this.SendPropertyChanged("PartnerTypeKey");
+					this.OnPartnerTypeKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PartnerType_Partner", Storage="_Partners", ThisKey="PartnerTypeKey", OtherKey="PartnerTypeKey")]
+		public EntitySet<Partner> Partners
+		{
+			get
+			{
+				return this._Partners;
+			}
+			set
+			{
+				this._Partners.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Partners(Partner entity)
+		{
+			this.SendPropertyChanging();
+			entity.PartnerType = this;
+		}
+		
+		private void detach_Partners(Partner entity)
+		{
+			this.SendPropertyChanging();
+			entity.PartnerType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
+	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectKey;
+		
+		private int _ProjectTypeKey;
+		
+		private bool _Active;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private System.DateTime _StartDate;
+		
+		private System.DateTime _CompletionDate;
+		
+		private EntitySet<Testimonial> _Testimonials;
+		
+		private EntitySet<ProjectImage> _ProjectImages;
+		
+		private EntitySet<ProjectPartner> _ProjectPartners;
+		
+		private EntityRef<ProjectType> _ProjectType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectKeyChanging(int value);
+    partial void OnProjectKeyChanged();
+    partial void OnProjectTypeKeyChanging(int value);
+    partial void OnProjectTypeKeyChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnStartDateChanging(System.DateTime value);
+    partial void OnStartDateChanged();
+    partial void OnCompletionDateChanging(System.DateTime value);
+    partial void OnCompletionDateChanged();
+    #endregion
+		
+		public Project()
+		{
+			this._Testimonials = new EntitySet<Testimonial>(new Action<Testimonial>(this.attach_Testimonials), new Action<Testimonial>(this.detach_Testimonials));
+			this._ProjectImages = new EntitySet<ProjectImage>(new Action<ProjectImage>(this.attach_ProjectImages), new Action<ProjectImage>(this.detach_ProjectImages));
+			this._ProjectPartners = new EntitySet<ProjectPartner>(new Action<ProjectPartner>(this.attach_ProjectPartners), new Action<ProjectPartner>(this.detach_ProjectPartners));
+			this._ProjectType = default(EntityRef<ProjectType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectKey
+		{
+			get
+			{
+				return this._ProjectKey;
+			}
+			set
+			{
+				if ((this._ProjectKey != value))
+				{
+					this.OnProjectKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectKey = value;
+					this.SendPropertyChanged("ProjectKey");
+					this.OnProjectKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectTypeKey", DbType="Int NOT NULL")]
+		public int ProjectTypeKey
+		{
+			get
+			{
+				return this._ProjectTypeKey;
+			}
+			set
+			{
+				if ((this._ProjectTypeKey != value))
+				{
+					if (this._ProjectType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectTypeKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectTypeKey = value;
+					this.SendPropertyChanged("ProjectTypeKey");
+					this.OnProjectTypeKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime NOT NULL")]
+		public System.DateTime StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompletionDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CompletionDate
+		{
+			get
+			{
+				return this._CompletionDate;
+			}
+			set
+			{
+				if ((this._CompletionDate != value))
+				{
+					this.OnCompletionDateChanging(value);
+					this.SendPropertyChanging();
+					this._CompletionDate = value;
+					this.SendPropertyChanged("CompletionDate");
+					this.OnCompletionDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Testimonial", Storage="_Testimonials", ThisKey="ProjectKey", OtherKey="ProjectKey")]
+		public EntitySet<Testimonial> Testimonials
+		{
+			get
+			{
+				return this._Testimonials;
+			}
+			set
+			{
+				this._Testimonials.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectImage", Storage="_ProjectImages", ThisKey="ProjectKey", OtherKey="ProjectKey")]
+		public EntitySet<ProjectImage> ProjectImages
+		{
+			get
+			{
+				return this._ProjectImages;
+			}
+			set
+			{
+				this._ProjectImages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectPartner", Storage="_ProjectPartners", ThisKey="ProjectKey", OtherKey="ProjectKey")]
+		public EntitySet<ProjectPartner> ProjectPartners
+		{
+			get
+			{
+				return this._ProjectPartners;
+			}
+			set
+			{
+				this._ProjectPartners.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectType_Project", Storage="_ProjectType", ThisKey="ProjectTypeKey", OtherKey="ProjectTypeKey", IsForeignKey=true)]
+		public ProjectType ProjectType
+		{
+			get
+			{
+				return this._ProjectType.Entity;
+			}
+			set
+			{
+				ProjectType previousValue = this._ProjectType.Entity;
+				if (((previousValue != value) 
+							|| (this._ProjectType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProjectType.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._ProjectType.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._ProjectTypeKey = value.ProjectTypeKey;
+					}
+					else
+					{
+						this._ProjectTypeKey = default(int);
+					}
+					this.SendPropertyChanged("ProjectType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Testimonials(Testimonial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_Testimonials(Testimonial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ProjectImages(ProjectImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectImages(ProjectImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ProjectPartners(ProjectPartner entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectPartners(ProjectPartner entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectImage")]
+	public partial class ProjectImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectImageKey;
+		
+		private int _ProjectKey;
+		
+		private string _ImagePath;
+		
+		private System.Nullable<int> _SortOrder;
+		
+		private bool _DefaultImage;
+		
+		private EntityRef<Project> _Project;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectImageKeyChanging(int value);
+    partial void OnProjectImageKeyChanged();
+    partial void OnProjectKeyChanging(int value);
+    partial void OnProjectKeyChanged();
+    partial void OnImagePathChanging(string value);
+    partial void OnImagePathChanged();
+    partial void OnSortOrderChanging(System.Nullable<int> value);
+    partial void OnSortOrderChanged();
+    partial void OnDefaultImageChanging(bool value);
+    partial void OnDefaultImageChanged();
+    #endregion
+		
+		public ProjectImage()
+		{
+			this._Project = default(EntityRef<Project>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectImageKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectImageKey
+		{
+			get
+			{
+				return this._ProjectImageKey;
+			}
+			set
+			{
+				if ((this._ProjectImageKey != value))
+				{
+					this.OnProjectImageKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectImageKey = value;
+					this.SendPropertyChanged("ProjectImageKey");
+					this.OnProjectImageKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectKey", DbType="Int NOT NULL")]
+		public int ProjectKey
+		{
+			get
+			{
+				return this._ProjectKey;
+			}
+			set
+			{
+				if ((this._ProjectKey != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectKey = value;
+					this.SendPropertyChanged("ProjectKey");
+					this.OnProjectKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImagePath", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string ImagePath
+		{
+			get
+			{
+				return this._ImagePath;
+			}
+			set
+			{
+				if ((this._ImagePath != value))
+				{
+					this.OnImagePathChanging(value);
+					this.SendPropertyChanging();
+					this._ImagePath = value;
+					this.SendPropertyChanged("ImagePath");
+					this.OnImagePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortOrder", DbType="Int")]
+		public System.Nullable<int> SortOrder
+		{
+			get
+			{
+				return this._SortOrder;
+			}
+			set
+			{
+				if ((this._SortOrder != value))
+				{
+					this.OnSortOrderChanging(value);
+					this.SendPropertyChanging();
+					this._SortOrder = value;
+					this.SendPropertyChanged("SortOrder");
+					this.OnSortOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultImage", DbType="Bit NOT NULL")]
+		public bool DefaultImage
+		{
+			get
+			{
+				return this._DefaultImage;
+			}
+			set
+			{
+				if ((this._DefaultImage != value))
+				{
+					this.OnDefaultImageChanging(value);
+					this.SendPropertyChanging();
+					this._DefaultImage = value;
+					this.SendPropertyChanged("DefaultImage");
+					this.OnDefaultImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectImage", Storage="_Project", ThisKey="ProjectKey", OtherKey="ProjectKey", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.ProjectImages.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectImages.Add(this);
+						this._ProjectKey = value.ProjectKey;
+					}
+					else
+					{
+						this._ProjectKey = default(int);
+					}
+					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectPartner")]
+	public partial class ProjectPartner : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectPartnerKey;
+		
+		private int _ProjectKey;
+		
+		private int _PartnerKey;
+		
+		private EntityRef<Partner> _Partner;
+		
+		private EntityRef<Project> _Project;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectPartnerKeyChanging(int value);
+    partial void OnProjectPartnerKeyChanged();
+    partial void OnProjectKeyChanging(int value);
+    partial void OnProjectKeyChanged();
+    partial void OnPartnerKeyChanging(int value);
+    partial void OnPartnerKeyChanged();
+    #endregion
+		
+		public ProjectPartner()
+		{
+			this._Partner = default(EntityRef<Partner>);
+			this._Project = default(EntityRef<Project>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectPartnerKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectPartnerKey
+		{
+			get
+			{
+				return this._ProjectPartnerKey;
+			}
+			set
+			{
+				if ((this._ProjectPartnerKey != value))
+				{
+					this.OnProjectPartnerKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectPartnerKey = value;
+					this.SendPropertyChanged("ProjectPartnerKey");
+					this.OnProjectPartnerKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectKey", DbType="Int NOT NULL")]
+		public int ProjectKey
+		{
+			get
+			{
+				return this._ProjectKey;
+			}
+			set
+			{
+				if ((this._ProjectKey != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectKey = value;
+					this.SendPropertyChanged("ProjectKey");
+					this.OnProjectKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerKey", DbType="Int NOT NULL")]
+		public int PartnerKey
+		{
+			get
+			{
+				return this._PartnerKey;
+			}
+			set
+			{
+				if ((this._PartnerKey != value))
+				{
+					if (this._Partner.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartnerKeyChanging(value);
+					this.SendPropertyChanging();
+					this._PartnerKey = value;
+					this.SendPropertyChanged("PartnerKey");
+					this.OnPartnerKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partner_ProjectPartner", Storage="_Partner", ThisKey="PartnerKey", OtherKey="PartnerKey", IsForeignKey=true)]
+		public Partner Partner
+		{
+			get
+			{
+				return this._Partner.Entity;
+			}
+			set
+			{
+				Partner previousValue = this._Partner.Entity;
+				if (((previousValue != value) 
+							|| (this._Partner.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partner.Entity = null;
+						previousValue.ProjectPartners.Remove(this);
+					}
+					this._Partner.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectPartners.Add(this);
+						this._PartnerKey = value.PartnerKey;
+					}
+					else
+					{
+						this._PartnerKey = default(int);
+					}
+					this.SendPropertyChanged("Partner");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectPartner", Storage="_Project", ThisKey="ProjectKey", OtherKey="ProjectKey", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.ProjectPartners.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectPartners.Add(this);
+						this._ProjectKey = value.ProjectKey;
+					}
+					else
+					{
+						this._ProjectKey = default(int);
+					}
+					this.SendPropertyChanged("Project");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectType")]
+	public partial class ProjectType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectTypeKey;
+		
+		private string _ID;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private EntitySet<Project> _Projects;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectTypeKeyChanging(int value);
+    partial void OnProjectTypeKeyChanged();
+    partial void OnIDChanging(string value);
+    partial void OnIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public ProjectType()
+		{
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectTypeKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectTypeKey
+		{
+			get
+			{
+				return this._ProjectTypeKey;
+			}
+			set
+			{
+				if ((this._ProjectTypeKey != value))
+				{
+					this.OnProjectTypeKeyChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectTypeKey = value;
+					this.SendPropertyChanged("ProjectTypeKey");
+					this.OnProjectTypeKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectType_Project", Storage="_Projects", ThisKey="ProjectTypeKey", OtherKey="ProjectTypeKey")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProjectType = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProjectType = null;
 		}
 	}
 }
