@@ -11,27 +11,31 @@
       <!-- ################################################################################################ -->
       <!-- Slider -->
       <div id="featured_slide">
-        <section class="flexslider">
-          <ul class="slides">
-            <li>
-              <figure><a href="#"><img src="images/demo/Home_sample2.jpg" alt=""></a>
-                <figcaption class="flex-caption">
-                  <h2>Slide 1 Caption</h2>
-                  <p>Dapiensociis temper donec auctortortis cumsan et curabitur condis lorem loborttis leo.</p>
-                  <footer class="more"><a href="#">Read More Here &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure><a href="#"><img src="images/demo/960x360.gif" alt=""></a>
-                <figcaption class="flex-caption">
-                  <h2>Slide 2 Caption</h2>
-                  <p>Dapiensociis temper donec auctortortis cumsan et curabitur condis lorem loborttis leo.</p>
-                  <footer class="more"><a href="#">Read More Here &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="last">
+          <asp:Repeater runat="server" ID="repFlexSlider">
+              <HeaderTemplate>
+                    <section class="flexslider">
+                        <ul class="slides">          
+              </HeaderTemplate>
+              <ItemTemplate>
+                    <li>
+                        <figure><asp:HyperLink runat="server" ID="hlFigure" NavigateUrl='<%#Bind("FigureUrl") %>' ImageUrl='<%#Bind("FigureImageUrl") %>' ToolTip='<%#Bind("SlideCaption") %>' ImageWidth="960px" ImageHeight="360px" />
+                        <figcaption class="flex-caption">
+                            <h2><asp:Label runat="server" ID="lblSlideCaption" Text='<%#Bind("SlideCaption") %>' /></h2>
+                            <asp:Literal runat="server" ID="phSlideDesc" Text='<%#Bind("SlideDescription") %>' />
+                          <asp:Panel runat="server" ID="pnlFooter" Visible='<%#Bind("HasReadMore") %>'><footer class="more"><asp:HyperLink runat="server" ID="hlMore" NavigateUrl='<%#Bind("ReadMoreUrl") %>' Text="Read More Here &raquo;"></asp:HyperLink></footer></asp:Panel>
+                        </figcaption>
+                      </figure>
+                    </li>      
+              </ItemTemplate>
+              <FooterTemplate>
+                        </ul>
+                    </section>
+              </FooterTemplate>
+          </asp:Repeater>
+        
+            
+            
+            <%--<li class="last">
               <figure><a href="#"><img src="images/demo/960x360.gif" alt=""></a>
                 <figcaption class="flex-caption">
                   <h2>Slide 3 Caption</h2>
@@ -39,9 +43,8 @@
                   <footer class="more"><a href="#">Read More Here &raquo;</a></footer>
                 </figcaption>
               </figure>
-            </li>
-          </ul>
-        </section>
+            </li>--%>
+          
       </div>
       <!-- main content -->
         

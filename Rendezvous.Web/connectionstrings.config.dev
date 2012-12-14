@@ -1,3 +1,4 @@
 ﻿<?xml version="1.0"?>
 <connectionStrings>
+  <add name="RendezvousConnectionString" connectionString="Data Source=.;Initial Catalog=Rendezvous;Persist Security Info=True;User ID=webuser;Password=1pass4all" providerName="Syste.Data.SqlClient"/>
 </connectionStrings>

@@ -38,19 +38,9 @@
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CompletionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="Project_Testimonial" Member="Testimonials" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Testimonial" />
-      <Association Name="Project_ProjectImage" Member="ProjectImages" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="ProjectImage" />
       <Association Name="Project_ProjectPartner" Member="ProjectPartners" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="ProjectPartner" />
+      <Association Name="Project_ProjectImage" Member="ProjectImages" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="ProjectImage" />
       <Association Name="ProjectType_Project" Member="ProjectType" ThisKey="ProjectTypeKey" OtherKey="ProjectTypeKey" Type="ProjectType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProjectImage" Member="ProjectImages">
-    <Type Name="ProjectImage">
-      <Column Name="ProjectImageKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProjectKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DefaultImage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Project_ProjectImage" Member="Project" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProjectPartner" Member="ProjectPartners">
@@ -69,6 +59,16 @@
       <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="ProjectType_Project" Member="Projects" ThisKey="ProjectTypeKey" OtherKey="ProjectTypeKey" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectImage" Member="ProjectImages">
+    <Type Name="ProjectImage">
+      <Column Name="ProjectImageKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultImage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Project_ProjectImage" Member="Project" ThisKey="ProjectKey" OtherKey="ProjectKey" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

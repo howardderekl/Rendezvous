@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Object\Slide.cs" />
+    <Compile Include="Core\Object\Slider.cs" />
     <Compile Include="Data\DataRepository.cs" />
     <Compile Include="Data\DbConnection.cs" />
     <Compile Include="Data\Interfaces\IProject.cs" />
@@ -88,7 +90,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
+    <Folder Include="Core\Interface\" />
     <Folder Include="Data\Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
