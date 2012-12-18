@@ -18,7 +18,7 @@
               </HeaderTemplate>
               <ItemTemplate>
                     <li>
-                        <figure><asp:HyperLink runat="server" ID="hlFigure" NavigateUrl='<%#Bind("FigureUrl") %>' ImageUrl='<%#Bind("FigureImgUrl") %>' ToolTip='<%#Bind("SlideCaption") %>' ImageWidth="960px" ImageHeight="360px" />
+                        <figure><asp:HyperLink runat="server" ID="hlFigure" NavigateUrl='<%#Bind("FigureUrl") %>' ImageUrl='<%#Bind("FigureImgUrl") %>' ToolTip='<%#Bind("SlideCaption") %>'/>
                         <figcaption class="flex-caption">
                             <h2><asp:Label runat="server" ID="lblSlideCaption" Text='<%#Bind("SlideCaption") %>' /></h2>
                             <asp:Literal runat="server" ID="phSlideDesc" Text='<%#Bind("SlideDescription") %>' />
