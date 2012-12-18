@@ -7,7 +7,7 @@
         <telerik:RadMenuItem runat="server" Text="Testimonials" PostBack="False" NavigateUrl="~/Testimonials"></telerik:RadMenuItem>
         <telerik:RadMenuItem runat="server" Text="Our Process" PostBack="False" NavigateUrl="~/OurProcess"></telerik:RadMenuItem>
         <telerik:RadMenuItem runat="server" Text="Partners" PostBack="False" NavigateUrl="~/Partners"></telerik:RadMenuItem>
-        <telerik:RadMenuItem runat="server" Text="About Us" PostBack="False" NavigateUrl="~/AboutUs"></telerik:RadMenuItem>
+        <telerik:RadMenuItem runat="server" Text="Why RCH" PostBack="False" NavigateUrl="~/AboutUs"></telerik:RadMenuItem>
         <telerik:RadMenuItem runat="server" Text="Contact Us" PostBack="False" NavigateUrl="~/ContactUs"></telerik:RadMenuItem>
     </Items>
 </telerik:RadMenu>

@@ -34,17 +34,20 @@ namespace Rendezvous.Web
             AddGeneralRoute("OurProcess", "OurProcess", "~/OurProcess/Default.aspx");
             
             AddGeneralRoute("Partners", "Partners", "~/Partners/Default.aspx");
+            
 
             
+            AddPageWithIdRoute("ProjectDetails", "Projects/{id}", "~/Projects/ProjectDetails.aspx");
+		    
 			//AddPageWithIdRoute("EditBatch", "Batches/{id}", "~/BatchPages/EditBatch.aspx");
 
 			
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 			routes.IgnoreRoute("{resource}.aspx/{*pathInfo}");
-			routes.MapRoute("DefaultMVC", // Route name
-					"{controller}/{action}/{id}", // URL with parameters
-					new { controller = "Home", action = "Index", id = "" }// Parameter defaults
-			);
+            //routes.MapRoute("DefaultMVC", // Route name
+            //        "{controller}/{action}/{id}", // URL with parameters
+            //        new { controller = "Home", action = "Index", id = "" }// Parameter defaults
+            //);
 
 		}
 

@@ -10,7 +10,7 @@ namespace Rendezvous.Engine.Data.Repository
     {
         public static IEnumerable<Slide> GetProjectAsSlides(int numSlides)
         {
-            return from prj in Db.Projects
+            var projects = from prj in Db.Projects
                    where prj.Active
                    select new Slide()
                    {
@@ -23,6 +23,8 @@ namespace Rendezvous.Engine.Data.Repository
                        HasReadMore = false,
                        ReadMoreUrl = ""
                    };
+
+            return projects;
         }
     }
 }
