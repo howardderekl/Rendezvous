@@ -215,6 +215,10 @@
     <Content Include="Partners\Default.aspx" />
     <Content Include="portfolio.html" />
     <Content Include="Projects\Default.aspx" />
+    <Content Include="Projects\images\BLYNSY\Home1.jpg" />
+    <Content Include="Projects\images\BLYNSY\Home2.jpg" />
+    <Content Include="Projects\images\BLYNSY\Home3.jpg" />
+    <Content Include="Projects\images\BLYNSY\Home4.jpg" />
     <Content Include="Projects\images\DTESTATE\Home1.jpg" />
     <Content Include="Projects\images\JKFARM\Home2.jpg" />
     <Content Include="Projects\images\RMFRETIRE\Home3.jpg" />
@@ -290,7 +294,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

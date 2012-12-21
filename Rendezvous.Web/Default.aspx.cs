@@ -16,7 +16,7 @@ namespace Rendezvous.Web
 
         private void BindSlider()
         {
-            repFlexSlider.DataSource = ProjectRepository.GetProjectAsSlides(3);
+            repFlexSlider.DataSource = ProjectRepository.GetProjectAsSlides(4);
             repFlexSlider.DataBind();
         }
 	}
