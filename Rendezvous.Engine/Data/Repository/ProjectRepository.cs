@@ -26,5 +26,13 @@ namespace Rendezvous.Engine.Data.Repository
 
             return projects;
         }
+
+
+        public static IEnumerable<Project> GetProjectsByProjectType(int typeKey)
+        {
+            return from prj in Db.Projects
+                   where prj.ProjectTypeKey == typeKey
+                   select prj;
+        }
     }
 }

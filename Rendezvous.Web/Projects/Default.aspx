@@ -3,92 +3,41 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <!-- content body -->
-      <section id="portfolio" class="clear">
-        <ul>
-          <li class="first">
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-          <li class="first">
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-          <li class="first">
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-          <li>
-            <article>
-              <figure><img src="../images/demo/440x190.gif" alt="">
-                <figcaption>
-                  <header>Metridiculis conseque quis</header>
-                  <p>Orciinterdum condimenterdum nullamcorper elit nam curabitur laoreet met praesenean et iaculum. Metridiculis conseque quis iaculum aenean nunc aenean quis nam nis dui.</p>
-                  <footer><a href="#">View This Project &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </article>
-          </li>
-        </ul>
-      </section>
-      <!-- ####################################################################################################### -->
-      <!-- ####################################################################################################### -->
-      <div class="pagination">
-        <ul>
-          <li class="prev"><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li class="splitter"><strong>&hellip;</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li class="splitter"><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li class="next"><a href="#">Next &raquo;</a></li>
-        </ul>
-      </div>
-      <!-- / content body -->
+    
+        <!-- RadList -->
+        <telerik:RadListView runat="server" ID="rlvProjectTypeList" ItemPlaceholderID="ProjectTypePlaceHolder" OnNeedDataSource="rlvProjectTypeList_NeedDataSource">
+            <LayoutTemplate>
+                <section id="portfolio" class="clear">
+                    <%--<div id="ProjectTypePlaceHolder" runat="server"></div>--%>
+                    <ul id="ProjectTypePlaceHolder" runat="server"></ul>
+                </section>    
+            </LayoutTemplate>
+            <ItemTemplate>
+                <%--<div>
+                    <div><h1><asp:Label runat="server" ID="lblProjectTypeTitle" Text='<%#Eval("Title") %>' /></h1></div>
+                    <div><p><asp:Literal runat="server" ID="litProjectTypeDesc" Text='<%#Eval("Description") %>' /></p></div>--%>
+                    <ul>
+                        <telerik:RadListView runat="server" ID="rlvProjectList" ItemPlaceholderID="ProjectDetailsPlaceHolder" DataSource='<%#Eval("ProjectList") %>'>
+                            <LayoutTemplate>
+                                <li id="ProjectDetailsPlaceHolder" runat="server"></li>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <li>
+                                    <article>
+                                        <figure><img src="../images/demo/440x190.gif" alt=""/></figure>
+                                        <figcaption>
+                                            <header><asp:Label runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>'></asp:Label></header>
+                                            <p><asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal></p>
+                                            <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Project/{0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
+                                        </figcaption>
+                                    </article>
+                                </li>
+                            </ItemTemplate>
+                        </telerik:RadListView>
+                    </ul>
+                <%--</div>--%>
+            </ItemTemplate>
+        </telerik:RadListView>
+        <!-- RadList -->
+    <!-- / content body -->
 </asp:Content>
