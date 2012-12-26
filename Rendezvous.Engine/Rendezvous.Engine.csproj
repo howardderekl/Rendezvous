@@ -57,6 +57,7 @@
       <DependentUpon>RendezvousDataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\Interfaces\IDataRepository.cs" />
+    <Compile Include="Data\Repository\ProjectImageRepository.cs" />
     <Compile Include="Data\Repository\ProjectRepository.cs" />
     <Compile Include="Data\Repository\ProjectTypeRepository.cs" />
     <Compile Include="Data\Repository\RepositoryBase.cs" />

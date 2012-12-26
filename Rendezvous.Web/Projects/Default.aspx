@@ -24,7 +24,7 @@
                             <ItemTemplate>
                                 <li>
                                     <article>
-                                        <figure><img src="../images/demo/440x190.gif" alt=""/></figure>
+                                        <figure><asp:Image runat="server" ID="imgDefaultPrjImg" ImageUrl='<%# Bind("DefaultImagePath") %>'/></figure>
                                         <figcaption>
                                             <header><asp:Label runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>'></asp:Label></header>
                                             <p><asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal></p>
