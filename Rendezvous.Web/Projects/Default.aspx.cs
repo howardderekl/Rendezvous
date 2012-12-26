@@ -19,7 +19,7 @@ namespace Rendezvous.Web.Projects
 
         protected void rlvProjectTypeList_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
         {
-            rlvProjectTypeList.DataSource = ProjectTypeRepository.GetProjectsByType();
+            rlvProjectTypeList.DataSource = ProjectRepository.GetActiveProjects();
         }
     }
 }

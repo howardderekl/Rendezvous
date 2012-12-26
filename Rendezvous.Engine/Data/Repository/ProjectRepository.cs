@@ -34,5 +34,10 @@ namespace Rendezvous.Engine.Data.Repository
                    where prj.ProjectTypeKey == typeKey
                    select prj;
         }
+
+        public static IEnumerable<Project> GetActiveProjects()
+        {
+            return Db.Projects.Where(p => p.Active).OrderByDescending(p => p.CompletionDate);
+        }
     }
 }
