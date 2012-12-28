@@ -32,19 +32,6 @@
                     </section>
               </FooterTemplate>
           </asp:Repeater>
-        
-            
-            
-            <%--<li class="last">
-              <figure><a href="#"><img src="images/demo/960x360.gif" alt=""></a>
-                <figcaption class="flex-caption">
-                  <h2>Slide 3 Caption</h2>
-                  <p>Dapiensociis temper donec auctortortis cumsan et curabitur condis lorem loborttis leo.</p>
-                  <footer class="more"><a href="#">Read More Here &raquo;</a></footer>
-                </figcaption>
-              </figure>
-            </li>--%>
-          
       </div>
       <!-- main content -->
         

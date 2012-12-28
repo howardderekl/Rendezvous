@@ -1,18 +1,52 @@
 ﻿<%@ Page Title="Rendezvous Custom Homes - Project Details" Language="C#" MasterPageFile="~/Master/Marketing.Master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="Rendezvous.Web.Projects.ProjectDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+    <link rel="stylesheet" href="../styles/flexslider.css" type="text/css" media="all">
+    <script src="../scripts/jquery-flexslider.min.js"></script>
+    <script src="../scripts/jquery-flexslider-projectdetails.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="content">
-        <section>
-          <h1>More Than A Home Builder</h1>
-          <figure class="imgr"><img src="../images/demo/imgr.gif" alt="" width="125" height="125"></figure>
-          <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-          <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
-          <figure class="imgl"><img src="../images/demo/imgl.gif" alt="" width="125" height="125"></figure>
-          <p>This is a W3C compliant free website template from <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="http://www.os-templates.com/template-terms">website template licence</a>.</p>
-          <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more HTML5 templates visit <a href="http://www.os-templates.com/">free website templates</a>.</p>
-          <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
+        <section id="portfolio" class="clear">
+            <article>
+                <figure><asp:Image runat="server" ID="imgDefaultPrjImg" ImageUrl="images/BLYNSY/Home1.jpg"/>
+                    <figcaption>
+                        <header>Balyasny Residence - Main Home</header>
+                        <p>This is the sample description of the Balyasny main residence home</p>
+                        <footer></footer>
+                    </figcaption>
+                </figure>
+            </article>
         </section>
+        <div class="pad">
+            <div id="featured_slide">
+            <section id="slider" class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <figure><img src="images/BLYNSY/Home2.jpg" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="images/BLYNSY/Home3.jpg" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="images/BLYNSY/Home4.jpg" /></figure>
+                    </li>
+                </ul>
+            </section>
+            <section id="carousel" class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <figure><img src="images/BLYNSY/Home2.jpg" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="images/BLYNSY/Home3.jpg" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="images/BLYNSY/Home4.jpg" /></figure>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        </div>
     </div>
     <aside id="right_column">
         <section>

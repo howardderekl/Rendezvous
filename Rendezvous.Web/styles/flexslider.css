@@ -12,8 +12,11 @@
  */
 
 #featured_slide{display:block; position:relative; margin:10px 0 40px 0; padding:0;}
-#featured_slide a{outline:none; text-decoration:none;}
-#featured_slide section, #featured_slide ul, #featured_slide ol{margin:0; padding:0; list-style:none; line-height:normal;}
+#projectdetail_slide{display:block; position:relative; margin:10px 0 10px 0; padding:0;}
+#featured_slide, #projectdetail_slide a{outline:none; text-decoration:none;}
+#featured_slide, #projectdetail_slide section, #featured_slide ul, #featured_slide ol{margin:0; padding:0; list-style:none; line-height:normal;}
+#carousel { margin: 10px 0 10px 0;}
+
 
 /* FlexSlider Necessary Styles */ 
 

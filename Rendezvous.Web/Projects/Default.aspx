@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
-    <!-- content body -->
-    
+    <div id="content">
         <!-- RadList -->
         <telerik:RadListView runat="server" ID="rlvProjectTypeList" ItemPlaceholderID="ProjectPlaceHolder" OnNeedDataSource="rlvProjectTypeList_NeedDataSource">
             <LayoutTemplate>
@@ -41,5 +40,5 @@
             </AlternatingItemTemplate>
         </telerik:RadListView>
         <!-- RadList -->
-    <!-- / content body -->
+    </div>
 </asp:Content>
