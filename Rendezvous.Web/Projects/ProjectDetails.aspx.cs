@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Rendezvous.Engine.Data.Entity;
+using Rendezvous.Engine.Data.Repository;
 using Rendezvous.Web.Core;
 
 namespace Rendezvous.Web.Projects
@@ -14,9 +16,9 @@ namespace Rendezvous.Web.Projects
         {
             if (!IsPostBack)
             {
-                if (ID != 0)
+                if (reqID != 0)
                 {
-                    BindProjectInformation(ID);
+                    BindProjectInformation(reqID);
                 }
                 else
                 {
@@ -32,10 +34,34 @@ namespace Rendezvous.Web.Projects
 
         private void BindProjectInformation(int projectKey)
         {
-            
+            var reqPrj = ProjectRepository.GetByID(projectKey);
+
+            if (reqPrj != null)
+            {
+                if (reqPrj.DefaultImagePath != "")
+                    imgDefaultPrjImg.ImageUrl = reqPrj.DefaultImagePath;
+
+                lblProjectTitle.Text = reqPrj.Title;
+
+                litProjectDesc.Text = reqPrj.Description;
+
+                BindImageSlider(reqPrj.NonDefaultImagePaths);
+            }
+            else
+            {
+                DisplayInvalidProjectKey();
+            }
         }
 
-        public int ID {
+        private void BindImageSlider(IEnumerable<ProjectImage> imgPaths)
+        {
+            rlvSlider.DataSource = imgPaths;
+            rlvSlider.DataBind();
+            rlvCarousel.DataSource = imgPaths;
+            rlvCarousel.DataBind();
+        }
+
+        public int reqID {
             get
             {
                 if (Request["id"] == null)

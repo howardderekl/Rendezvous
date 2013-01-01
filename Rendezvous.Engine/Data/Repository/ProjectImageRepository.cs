@@ -21,5 +21,11 @@ namespace Rendezvous.Engine.Data.Repository
 
             return retImgURl;
         }
+
+        public static IEnumerable<ProjectImage> GetNonDefaultProjectImages(int prjKey)
+        {
+            return Db.ProjectImages.Where(i => i.ProjectKey == prjKey && !i.DefaultImage)
+                     .OrderBy(i => i.SortOrder);
+        }
     }
 }

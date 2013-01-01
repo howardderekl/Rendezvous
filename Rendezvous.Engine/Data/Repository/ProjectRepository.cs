@@ -20,8 +20,8 @@ namespace Rendezvous.Engine.Data.Repository
                                          .FirstOrDefault(i => i.DefaultImage || i.SortOrder == 0)
                                          .ImagePath ?? "",
                        SlideDescription = prj.Description,
-                       HasReadMore = false,
-                       ReadMoreUrl = ""
+                       HasReadMore = true,
+                       ReadMoreUrl = "~/Projects/ProjectDetails.aspx?id=" + prj.ProjectKey
                    };
 
             return projects;

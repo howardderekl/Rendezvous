@@ -1,0 +1,8 @@
+Insert into dbo.Testimonial (CreateDate, Name, Note, ProjectKey)
+	values ('2010-01-20', 'Derek Howard', '<p>“RCH has all the qualities you want in a builder;   quality, value, innovation, integrity, organization, and personality.”</p>', 1)
+Insert into dbo.Testimonial (CreateDate, Name, Note, ProjectKey)
+	values ('2011-06-10', 'Kody Jeppesen', '“It is an understatement to view the new facilities for the Jeppesen Ranch as simply a construction project.  It is, literally, the foundation upon which we will continue to build our dreams, and the ranch itself will showcase our dedication to quality.”', 2)
+Insert into dbo.Testimonial (CreateDate, Name, Note, ProjectKey)
+	values ('2012-01-01', 'Ralph Steve Jeppesen', '"Your experience and honesty are very unique to our industry."', 3)
+Insert into dbo.Testimonial (CreateDate, Name, Note, ProjectKey)
+	values ('2012-08-01', 'Mr. Balyasny', '"This is the second time I have engaged Rendezvous Custom Homes to build a high-end quality home."', 4)

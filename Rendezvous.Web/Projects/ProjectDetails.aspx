@@ -10,8 +10,8 @@
             <article>
                 <figure><asp:Image runat="server" ID="imgDefaultPrjImg" ImageUrl="images/BLYNSY/Home1.jpg"/>
                     <figcaption>
-                        <header>Balyasny Residence - Main Home</header>
-                        <p>This is the sample description of the Balyasny main residence home</p>
+                        <header><asp:Label runat="server" ID="lblProjectTitle" Text="" /></header>
+                        <asp:Literal runat="server" ID="litProjectDesc" />
                         <footer></footer>
                     </figcaption>
                 </figure>
@@ -19,33 +19,37 @@
         </section>
         <div class="pad">
             <div id="featured_slide">
-            <section id="slider" class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <figure><img src="images/BLYNSY/Home2.jpg" /></figure>
-                    </li>
-                    <li>
-                        <figure><img src="images/BLYNSY/Home3.jpg" /></figure>
-                    </li>
-                    <li>
-                        <figure><img src="images/BLYNSY/Home4.jpg" /></figure>
-                    </li>
-                </ul>
-            </section>
-            <section id="carousel" class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <figure><img src="images/BLYNSY/Home2.jpg" /></figure>
-                    </li>
-                    <li>
-                        <figure><img src="images/BLYNSY/Home3.jpg" /></figure>
-                    </li>
-                    <li>
-                        <figure><img src="images/BLYNSY/Home4.jpg" /></figure>
-                    </li>
-                </ul>
-            </section>
-        </div>
+                <telerik:RadListView runat="server" ID="rlvSlider" ItemPlaceholderID="DisplayImagePlaceHolder">
+                    <LayoutTemplate>
+                        <section id="slider" class="flexslider">
+                            <ul class="slides">
+                                <li runat="server" id="DisplayImagePlaceHolder"></li>
+                            </ul>
+                        </section>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <li>
+                            <figure>
+                                <asp:Image runat="server" ID="imgDisplayImage" ImageUrl='<%# Bind("ImagePath") %>' /></figure>
+                        </li>
+                    </ItemTemplate>
+                </telerik:RadListView>
+                <telerik:RadListView runat="server" ID="rlvCarousel" ItemPlaceholderID="CarouselImagePlaceHolder">
+                    <LayoutTemplate>
+                        <section id="carousel" class="flexslider">
+                            <ul class="slides">
+                                <li runat="server" id="CarouselImagePlaceHolder"></li>
+                            </ul>
+                        </section>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <li>
+                            <figure>
+                                <asp:Image runat="server" ID="imgDisplayImage" ImageUrl='<%# Bind("ImagePath") %>' /></figure>
+                        </li>
+                    </ItemTemplate>
+                </telerik:RadListView>
+            </div>
         </div>
     </div>
     <aside id="right_column">

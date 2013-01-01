@@ -19,7 +19,7 @@
                             <figcaption>
                                 <header><asp:Literal runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>' /></header>
                                 <asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal>
-                                <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Project/{0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
+                                <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Projects/ProjectDetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
                             </figcaption>
                         </figure>
                     </article>
@@ -32,7 +32,7 @@
                             <figcaption>
                                 <header><asp:Label runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>'></asp:Label></header>
                                 <p><asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal></p>
-                                <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Project/{0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
+                                <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Projects/ProjectDetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
                             </figcaption>
                         </figure>
                     </article>
