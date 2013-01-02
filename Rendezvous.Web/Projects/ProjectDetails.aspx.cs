@@ -35,6 +35,7 @@ namespace Rendezvous.Web.Projects
         private void BindProjectInformation(int projectKey)
         {
             var reqPrj = ProjectRepository.GetByID(projectKey);
+            TestimonialCntrl.Attributes["ProjectKey"] = projectKey.ToString();
 
             if (reqPrj != null)
             {
@@ -46,6 +47,7 @@ namespace Rendezvous.Web.Projects
                 litProjectDesc.Text = reqPrj.Description;
 
                 BindImageSlider(reqPrj.NonDefaultImagePaths);
+
             }
             else
             {

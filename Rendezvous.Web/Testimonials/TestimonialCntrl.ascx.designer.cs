@@ -10,15 +10,15 @@
 namespace Rendezvous.Web.Testimonials {
     
     
-    public partial class Default {
+    public partial class TestimonialCntrl {
         
         /// <summary>
-        /// TestimonialCntrl control.
+        /// rlvTestimonial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Rendezvous.Web.Testimonials.TestimonialCntrl TestimonialCntrl;
+        protected global::Telerik.Web.UI.RadListView rlvTestimonial;
     }
 }

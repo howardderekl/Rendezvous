@@ -56,5 +56,14 @@ namespace Rendezvous.Web.Projects {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadListView rlvCarousel;
+        
+        /// <summary>
+        /// TestimonialCntrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Rendezvous.Web.Testimonials.TestimonialCntrl TestimonialCntrl;
     }
 }

@@ -22,5 +22,9 @@ namespace Rendezvous.Engine.Data.Entity
         {
             get { return ProjectImageRepository.GetNonDefaultProjectImages(ProjectKey); }
         }
+
+        public IEnumerable<Testimonial> Testimonial {
+            get { return TestimonialRepository.GetTestimonialByProjectKey(ProjectKey); }            
+        }
     }
 }

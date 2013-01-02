@@ -13,12 +13,7 @@ namespace Rendezvous.Web.Testimonials
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void rlvTestimonial_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
-        {
-            rlvTestimonial.DataSource = TestimonialRepository.GetAllActiveTestimonials();
+            
         }
     }
 }

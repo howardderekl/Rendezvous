@@ -14,9 +14,10 @@ namespace Rendezvous.Engine.Data.Repository
             return Db.Testimonials.OrderByDescending(t => t.CreateDate);
         }
 
-        public static Testimonial GetTestimonialByProjectKey(int prjKey)
+        public static IEnumerable<Testimonial> GetTestimonialByProjectKey(int prjKey)
         {
-            return Db.Testimonials.FirstOrDefault(t => t.ProjectKey == prjKey);
+            return Db.Testimonials.Where(t => t.ProjectKey == prjKey).OrderByDescending(t => t.CreateDate);
         }
+
     }
 }

@@ -189,6 +189,13 @@
     <Compile Include="Testimonials\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Testimonials\TestimonialCntrl.ascx.cs">
+      <DependentUpon>TestimonialCntrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testimonials\TestimonialCntrl.ascx.designer.cs">
+      <DependentUpon>TestimonialCntrl.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
@@ -263,6 +270,7 @@
     <Content Include="styles\portfolio.css" />
     <Content Include="styles\tables.css" />
     <Content Include="Testimonials\Default.aspx" />
+    <Content Include="Testimonials\TestimonialCntrl.ascx" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -317,7 +325,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

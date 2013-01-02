@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="Rendezvous Custom Homes - Project Details" Language="C#" MasterPageFile="~/Master/Marketing.Master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="Rendezvous.Web.Projects.ProjectDetails" %>
+
+<%@ Register Src="~/Testimonials/TestimonialCntrl.ascx" TagPrefix="uc1" TagName="TestimonialCntrl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <link rel="stylesheet" href="../styles/flexslider.css" type="text/css" media="all">
     <script src="../scripts/jquery-flexslider.min.js"></script>
@@ -53,18 +56,7 @@
         </div>
     </div>
     <aside id="right_column">
-        <section>
-          <article>
-            <h2>Lorem ipsum dolor</h2>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor sit</a></li>
-              <li>Etiam vel sapien et</li>
-              <li><a href="#">Etiam vel sapien et</a></li>
-            </ul>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
-            <p class="more"><a href="#">Continue Reading &raquo;</a></p>
-          </article>
-        </section>
+        <h2>Testimonials</h2>
+        <uc1:TestimonialCntrl runat="server" ID="TestimonialCntrl" ShowAll="False" ProjectKey="4" />
       </aside>
 </asp:Content>
