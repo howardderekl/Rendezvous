@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="content">
-        <h1>About Rendezvous Custom Homes</h1>
         <p>
         <asp:Image runat="server" ID="imgWhyRCH" ImageUrl="~/images/demo/Home5.jpg" CssClass="imgholder"/>
         </p>

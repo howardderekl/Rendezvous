@@ -26,5 +26,7 @@ namespace Rendezvous.Engine.Data.Repository
                            ProjectList = pGrp.Select(g => g.p)
                        };
         }
+
+
     }
 }

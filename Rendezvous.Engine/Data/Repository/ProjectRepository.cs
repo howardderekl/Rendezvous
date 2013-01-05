@@ -14,7 +14,7 @@ namespace Rendezvous.Engine.Data.Repository
                    where prj.Active
                    select new Slide()
                    {
-                       FigureUrl = "~/Projects",
+                       FigureUrl = "~/Projects/ProjectDetails.aspx?id=" + prj.ProjectKey,
                        SlideCaption = prj.Title,
                        FigureImgUrl = prj.ProjectImages
                                          .FirstOrDefault(i => i.DefaultImage || i.SortOrder == 0)

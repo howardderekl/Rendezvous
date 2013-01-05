@@ -18,7 +18,7 @@
                                 <time datetime="2000-04-06T08:15+00:00"><asp:Label runat="server" ID="lblDate" Text='<%# string.Format("{0:d}", Eval("CreateDate")) %>' /></time>
                             </header>
                             <section>
-                                <asp:Literal runat="server" ID="litTestimonial" Text='<%# Bind("Note") %>' /><asp:HyperLink runat="server" ID="hlProjectDetails" NavigateUrl='<%# string.Format("~/projects/projectdetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="...Project Details"/>
+                                <asp:Literal runat="server" ID="litTestimonial" Text='<%# Bind("Note") %>' /><asp:HyperLink runat="server" ID="hlProjectDetails" NavigateUrl='<%# string.Format("~/projects/projectdetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="...view project"/>
                             </section>
                         </article>
                     </li>   
@@ -35,7 +35,7 @@
                                 <time datetime="2000-04-06T08:15+00:00"><asp:Label runat="server" ID="lblDate" Text='<%# string.Format("{0:d}", Eval("CreateDate")) %>' /></time>
                             </header>
                             <section>
-                                <asp:Literal runat="server" ID="litTestimonial" Text='<%# Bind("Note") %>' /><asp:HyperLink runat="server" ID="hlProjectDetails" NavigateUrl='<%# string.Format("~/projects/projectdetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="...Project Details" />
+                                <asp:Literal runat="server" ID="litTestimonial" Text='<%# Bind("Note") %>' /><asp:HyperLink runat="server" ID="hlProjectDetails" NavigateUrl='<%# string.Format("~/projects/projectdetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="...view project" />
                             </section>
                         </article>
                     </li>   

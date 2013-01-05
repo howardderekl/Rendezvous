@@ -15,5 +15,10 @@ namespace Rendezvous.Web.Testimonials
         {
             
         }
+
+        protected void rlvProjectImages_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
+        {
+            rlvProjectImages.DataSource = ProjectRepository.GetProjectAsSlides(4);
+        }
     }
 }
