@@ -49,6 +49,7 @@
     <Compile Include="Core\Object\Slide.cs" />
     <Compile Include="Data\DataRepository.cs" />
     <Compile Include="Data\DbConnection.cs" />
+    <Compile Include="Data\Entity\ProjectType.cs" />
     <Compile Include="Data\Interfaces\IProject.cs" />
     <Compile Include="Data\Entity\Project.cs" />
     <Compile Include="Data\Entity\RendezvousDataClasses.designer.cs">

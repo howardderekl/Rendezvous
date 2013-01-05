@@ -37,6 +37,7 @@ To illustrate how these elements will work, we use the following demonstration:
    3. box | margin | box | margin | box
    4. box | margin | box | margin | box | margin | box
    5. box | margin | box | margin | box | margin | box | margin | box
+   6. box | margin | box | margin | box | margin | box | margin | box | margin | box
 
 Step 4:
 
@@ -48,6 +49,7 @@ WORKING OUT ONE HALF: ( box | margin | box )
 
 Fixed width minus the gutter / margin, divide the result by two and your finished:
 960px - 20px = 940px ÷ 2 = 470px
+960px - 100px = 860px / 6 = 143.33333
 
 To work out the Responsive / fluid width we use the result from the fixed width:
 470px ÷ 960px × 100 = 48.95833%
@@ -92,13 +94,14 @@ So now we have an end result that mathematically looks like:
 .one_half, 
 .one_third, .two_third, 
 .one_quarter, .two_quarter, .three_quarter, 
-.one_fifth, .two_fifth, .three_fifth, .four_fifth{display:inline-block; float:left; margin:0 0 0 2.08333%; list-style:none;}
+.one_fifth, .one_sixth, .two_fifth, .three_fifth, .four_fifth{display:inline-block; float:left; margin:0 0 0 2.08333%; list-style:none;}
 
 .first, 
 .one_half:first-child, 
 .one_third:first-child, .two_third:first-child, 
 .one_quarter:first-child, .two_quarter:first-child, .three_quarter:first-child, 
-.one_fifth:first-child, .two_fifth:first-child, .three_fifth:first-child, .four_fifth:first-child{margin-left:0;}
+.one_fifth:first-child, .one_sixth:first-child, .two_fifth:first-child, .three_fifth:first-child, .four_fifth:first-child{margin-left:0;}
+.one_sixth:last-child{ margin-right: 0;}
 
 .two_half, .three_third, .four_quarter, .five_fifth{display:block; width:100%; clear:both;}
 
@@ -141,6 +144,7 @@ So now we have an end result that mathematically looks like:
 
 /*
 .one_fifth{width:176px;} => 176 ÷ 960 = 0.1833333 * 100 = 18.33333
+.one_sixth{width:;} => .one_third / 2 = 15.97222
 .two_fifth{width:372px;} => 372 ÷ 960 = 0.3875 * 100 = 38.75
 .three_fifth{width:568px;} => 568 ÷ 960 = 0.5916666 * 100 = 59.16666
 .four_fifth{width:764px;} => 764 ÷ 960 = 0.7958333 * 100 = 79.58333
@@ -148,6 +152,7 @@ So now we have an end result that mathematically looks like:
 */
 
 .one_fifth{width:18.33333%;}
+.one_sixth{width: 14.93055%;}
 .two_fifth{width:38.75%;}
 .three_fifth{width:59.16666%;}
 .four_fifth{width:79.58333%;}

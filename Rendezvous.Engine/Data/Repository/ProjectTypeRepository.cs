@@ -16,15 +16,21 @@ namespace Rendezvous.Engine.Data.Repository
                    join p in Db.Projects on pt.ProjectTypeKey equals p.ProjectTypeKey
                    where p.Active
                    orderby p.CompletionDate descending 
-                   group new {pt, p} by new {pt.ProjectTypeKey, pt.ID, pt.Title, pt.Description}
+                   group new {pt, p} by new {pt.ProjectTypeKey, pt.ID, pt.Title, pt.Description, pt.ImageUrl}
                    into pGrp
                    select new ProjectTypeList
                        {
                            ShortName = pGrp.Key.ID,
                            Title = pGrp.Key.Title,
                            Description = pGrp.Key.Description,
+                           ImageUrl = pGrp.Key.ImageUrl,
                            ProjectList = pGrp.Select(g => g.p)
                        };
+        }
+
+        public static IEnumerable<ProjectType> GetActiveProjects()
+        {
+            return Db.ProjectTypes.OrderBy(p => p.ProjectTypeKey);
         }
 
 

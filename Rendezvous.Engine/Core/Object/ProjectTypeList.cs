@@ -8,6 +8,7 @@ namespace Rendezvous.Engine.Core.Object
         public string ShortName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string ImageUrl { get; set; }
 
         public IEnumerable<Project> ProjectList { get; set; }
     }

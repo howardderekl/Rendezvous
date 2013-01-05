@@ -19,5 +19,10 @@ namespace Rendezvous.Web
             repFlexSlider.DataSource = ProjectRepository.GetProjectAsSlides(4);
             repFlexSlider.DataBind();
         }
+
+        protected void rlvProjetTypeList_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
+        {
+            rlvProjetTypeList.DataSource = ProjectTypeRepository.GetActiveProjects();
+        }
 	}
 }

@@ -37,33 +37,21 @@
         
       <div id="homepage">
         <!-- Introduction -->
-        <section id="intro" class="clear">
-          <article class="one_fifth first"><a href="#"><img src="images/demo/166x130.gif" alt=""></a>
-            <h2>Indonectetus facilis</h2>
-            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
-          </article>
-          <article class="one_fifth"><a href="#"><img src="images/demo/166x130.gif" alt=""></a>
-            <h2>Indonectetus facilis</h2>
-            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
-          </article>
-          <article class="one_fifth"><a href="#"><img src="images/demo/166x130.gif" alt=""></a>
-            <h2>Indonectetus facilis</h2>
-            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
-          </article>
-          <article class="one_fifth"><a href="#"><img src="images/demo/166x130.gif" alt=""></a>
-            <h2>Indonectetus facilis</h2>
-            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
-          </article>
-          <article class="one_fifth last"><a href="#"><img src="images/demo/166x130.gif" alt=""></a>
-            <h2>Indonectetus facilis</h2>
-            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
-            <footer class="more"><a href="#">Read More &raquo;</a></footer>
-          </article>
-        </section>
+          <telerik:RadListView runat="server" ID="rlvProjetTypeList" ItemPlaceholderID="ProjectTypePlaceHolder" OnNeedDataSource="rlvProjetTypeList_NeedDataSource">
+              <LayoutTemplate>
+                  <section id="intro" class="clear">
+                      <article runat="server" id="ProjectTypePlaceHolder"></article>
+                  </section>
+              </LayoutTemplate>
+              <ItemTemplate>
+                  <article class="one_sixth">
+                      <asp:HyperLink runat="server" ID="hlProjectTypeImg" ImageUrl='<%# Bind("ImageUrl") %>' NavigateUrl='<%# string.Format("~/projects/default.aspx?id={0}", Eval("ProjectTypeKey")) %>' />
+                      <h2><asp:Label runat="server" ID="lblProjectTypeName" Text='<%# Bind("Title") %>' /></h2>
+                      <p><asp:Literal runat="server" ID="litProjectDesc" Text='<%# Bind("BriefDescription") %>' /></p>
+                      <footer class="more"><asp:HyperLink runat="server" ID="hlProjectLink" Text="View Projects &raquo;" NavigateUrl='<%# string.Format("~/projects/default.aspx?id={0}", Eval("ProjectTypeKey")) %>' /></footer>
+                  </article>
+              </ItemTemplate>
+          </telerik:RadListView>
         <!-- / Introduction -->
         <!-- ########################################################################################## -->
         <!-- Services -->
