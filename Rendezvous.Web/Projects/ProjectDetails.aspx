@@ -57,6 +57,6 @@
     </div>
     <aside id="right_column">
         <h2>Testimonials</h2>
-        <uc1:TestimonialCntrl runat="server" ID="TestimonialCntrl" ShowAll="False" ProjectKey="4" />
+        <uc1:TestimonialCntrl runat="server" ID="TestimonialCntrl" ShowAll="False" />
       </aside>
 </asp:Content>

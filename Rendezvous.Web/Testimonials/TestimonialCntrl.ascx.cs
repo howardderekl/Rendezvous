@@ -20,7 +20,17 @@ namespace Rendezvous.Web.Testimonials
             rlvTestimonial.DataSource = ShowAll ? TestimonialRepository.GetAllActiveTestimonials() : TestimonialRepository.GetTestimonialByProjectKey(ProjectKey);
         }
 
-        public int ProjectKey { get; set; }
+        private int _ProjectKey = 0;
+        public int ProjectKey {
+            get
+            {
+                if(_ProjectKey == 0)
+                    _ProjectKey = Request["id"] == "" ? 0 : int.Parse(Request["id"]);
+
+                return _ProjectKey;
+            }
+            set { _ProjectKey = value; }
+        }
         public bool ShowAll { get; set; }
     }
 }

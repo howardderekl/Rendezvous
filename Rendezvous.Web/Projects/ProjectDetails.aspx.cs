@@ -14,6 +14,8 @@ namespace Rendezvous.Web.Projects
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.DataBind();
+
             if (!IsPostBack)
             {
                 if (reqID != 0)
@@ -25,6 +27,8 @@ namespace Rendezvous.Web.Projects
                     DisplayInvalidProjectKey();
                 }
             }
+
+            
         }
 
         private void DisplayInvalidProjectKey()
@@ -35,7 +39,6 @@ namespace Rendezvous.Web.Projects
         private void BindProjectInformation(int projectKey)
         {
             var reqPrj = ProjectRepository.GetByID(projectKey);
-            TestimonialCntrl.Attributes["ProjectKey"] = projectKey.ToString();
 
             if (reqPrj != null)
             {
