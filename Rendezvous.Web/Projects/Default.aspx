@@ -4,7 +4,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="content">
         <!-- RadList -->
-        <telerik:RadListView runat="server" ID="rlvProjectTypeList" ItemPlaceholderID="ProjectPlaceHolder" OnNeedDataSource="rlvProjectTypeList_NeedDataSource">
+        
+            <telerik:RadListView runat="server" ID="rlvProjectTypeDetl" ItemPlaceholderID="ProjectTypePlaceHolder" OnNeedDataSource="rlvProjectTypeDetl_NeedDataSource">
+                <LayoutTemplate>
+                    <section id="comments">
+                        <ul>
+                            <li runat="server" id="ProjectTypePlaceHolder"></li>
+                        </ul>
+                    </section>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <li class="comment_odd">
+                        <article>
+                            <header>
+                                <figure>
+                                    <asp:Image runat="server" ID="imgProjectType" ImageUrl='<%# Bind("ImageUrl") %>' Width="72" Height="72"/>
+                                </figure>
+                                <address>
+                                    <asp:Label runat="server" ID="lblName" Text='<%# Bind("Title") %>' />
+                                </address>
+                            </header>
+                            <section>
+                                <asp:Literal runat="server" ID="litTestimonial" Text='<%# Bind("Description") %>' />
+                            </section>
+                        </article>
+                    </li>   
+                </ItemTemplate>
+            </telerik:RadListView>
+        
+        <section>
+            <telerik:RadListView runat="server" ID="rlvProjectTypeList" ItemPlaceholderID="ProjectPlaceHolder" OnNeedDataSource="rlvProjectTypeList_NeedDataSource">
             <EmptyDataTemplate>
                 <p>Check back soon for projects of the selected type</p>
             </EmptyDataTemplate>
@@ -42,6 +71,7 @@
                 </li>
             </AlternatingItemTemplate>
         </telerik:RadListView>
+        </section>
         <!-- RadList -->
     </div>
     <aside id="right_column">
