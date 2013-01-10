@@ -17,7 +17,7 @@ and (max-width : 360px) {
 	.one_half, .two_third, 
 	.one_third, .two_third, .three_third, 
 	.one_quarter, .two_quarter, .three_quarter, .four_quarter, 
-	.one_fifth, .two_fifth, .three_fifth, .four_fifth, .five_fifth{display:block; float:none; width:auto; margin:0 0 2% 0; padding:0;}
+	.one_fifth, .one_sixth, .two_fifth, .three_fifth, .four_fifth, .five_fifth{display:block; float:none; width:auto; margin:0 0 2% 0; padding:0;}
 	
 	.pad{margin:0; padding:0 10px;}
 	
@@ -63,6 +63,7 @@ and (max-width : 600px) {
 
 	#container #homepage #intro article.last{margin-bottom:0; padding-bottom:0; border-bottom:none;}
 	#container #homepage #intro article.one_fifth{display:block; float:none; width:auto; margin:0 0 20px 0; padding:0;}
+    #container #homepage #intro article.one_sixth{display:block; float:none; width:auto; margin:0 0 20px 0; padding:0;}
 	#container #homepage #intro article img{float:left; margin:0 20px 20px 0; padding:4px; border:1px solid #D6D6D6;}
 	
 	#container #homepage #services .one_third{display:block; float:none; width:auto;}

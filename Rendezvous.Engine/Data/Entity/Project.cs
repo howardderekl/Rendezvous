@@ -5,6 +5,16 @@ namespace Rendezvous.Engine.Data.Entity
 {
     public partial class Project : IProject
     {
+        public string BriefDescription
+        {
+            get
+            {
+                var totLen = Description.Length;
+                var bDesc = Description.Substring(0, totLen > 150 ? 150 : totLen);
+                return bDesc.Length > 150 ? bDesc  + "..." : bDesc;
+            }
+        }
+
         private string _mDefaultImagePath = "";
         public string DefaultImagePath 
         {

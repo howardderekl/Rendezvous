@@ -5,6 +5,9 @@
     <div id="content">
         <!-- RadList -->
         <telerik:RadListView runat="server" ID="rlvProjectTypeList" ItemPlaceholderID="ProjectPlaceHolder" OnNeedDataSource="rlvProjectTypeList_NeedDataSource">
+            <EmptyDataTemplate>
+                <p>Check back soon for projects of the selected type</p>
+            </EmptyDataTemplate>
             <LayoutTemplate>
                 <section id="portfolio" class="clear">
                     <ul>
@@ -18,7 +21,7 @@
                         <figure><asp:Image runat="server" ID="imgDefaultPrjImg" ImageUrl='<%# Bind("DefaultImagePath") %>'/>
                             <figcaption>
                                 <header><asp:Literal runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>' /></header>
-                                <asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal>
+                                <asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("BriefDescription") %>'></asp:Literal>
                                 <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Projects/ProjectDetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
                             </figcaption>
                         </figure>
@@ -31,7 +34,7 @@
                         <figure><asp:Image runat="server" ID="imgDefaultPrjImg" ImageUrl='<%# Bind("DefaultImagePath") %>'/>
                             <figcaption>
                                 <header><asp:Label runat="server" ID="lblProjTitle" Text='<%#Eval("Title") %>'></asp:Label></header>
-                                <p><asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("Description") %>'></asp:Literal></p>
+                                <p><asp:Literal runat="server" ID="litProjDesc" Text='<%#Eval("BriefDescription") %>'></asp:Literal></p>
                                 <footer><asp:HyperLink runat="server" ID="hlProjectLink" NavigateUrl='<%#string.Format("~/Projects/ProjectDetails.aspx?id={0}", Eval("ProjectKey")) %>' Text="View this Project &raquo;"></asp:HyperLink></footer>
                             </figcaption>
                         </figure>
@@ -41,4 +44,20 @@
         </telerik:RadListView>
         <!-- RadList -->
     </div>
+    <aside id="right_column">
+        <h2 class="title">Project Types</h2>
+        <telerik:RadListView runat="server" ID="rlvProjectTypeNav" ItemPlaceholderID="ProjectTypeNavPlaceHolder" OnNeedDataSource="rlvProjectTypeNav_NeedDataSource">
+            <LayoutTemplate>
+                <nav>
+                    <ul>
+                        <li><asp:HyperLink runat="server" ID="hlProjectTypeLinkDflt" Text="All Projects" NavigateUrl="~/Projects" /></li>
+                        <li runat="server" id="ProjectTypenavPlaceHolder"></li>
+                    </ul>
+                </nav>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <li><asp:HyperLink runat="server" ID="hlProjectTypeLink" Text='<%# Bind("Title") %>' NavigateUrl='<%# string.Format("~/Projects/Default.aspx?id={0}", Eval("ProjectTypeKey")) %>' /></li>
+            </ItemTemplate>
+        </telerik:RadListView>
+    </aside>
 </asp:Content>

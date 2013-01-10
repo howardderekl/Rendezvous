@@ -28,7 +28,7 @@ namespace Rendezvous.Engine.Data.Repository
                        };
         }
 
-        public static IEnumerable<ProjectType> GetActiveProjects()
+        public static IEnumerable<ProjectType> GetActiveProjectTypes()
         {
             return Db.ProjectTypes.OrderBy(p => p.ProjectTypeKey);
         }

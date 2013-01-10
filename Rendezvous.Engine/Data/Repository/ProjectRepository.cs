@@ -32,6 +32,7 @@ namespace Rendezvous.Engine.Data.Repository
         {
             return from prj in Db.Projects
                    where prj.ProjectTypeKey == typeKey
+                   orderby prj.CompletionDate descending 
                    select prj;
         }
 

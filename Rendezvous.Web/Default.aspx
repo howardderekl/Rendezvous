@@ -55,7 +55,7 @@
         <!-- / Introduction -->
         <!-- ########################################################################################## -->
         <!-- Services -->
-        <section id="services" class="last clear">
+        <%--<section id="services" class="last clear">
           <h1 class="hidden">Services We Offer</h1>
           <article class="one_third first">
             <figure class="clear"><img src="images/demo/48x48.gif" alt="">
@@ -105,7 +105,7 @@
               </figcaption>
             </figure>
           </article>
-        </section>
+        </section>--%>
         <!-- / Services -->
       </div>
       <!-- ################################################################################################ -->

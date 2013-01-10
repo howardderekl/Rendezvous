@@ -19,7 +19,28 @@ namespace Rendezvous.Web.Projects
 
         protected void rlvProjectTypeList_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
         {
-            rlvProjectTypeList.DataSource = ProjectRepository.GetActiveProjects();
+            if (ProjectTypeKey == 0)
+                rlvProjectTypeList.DataSource = ProjectRepository.GetActiveProjects();
+            else
+                rlvProjectTypeList.DataSource = ProjectRepository.GetProjectsByProjectType(ProjectTypeKey);
+        }
+
+        protected void rlvProjectTypeNav_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
+        {
+            rlvProjectTypeNav.DataSource = ProjectTypeRepository.GetActiveProjectTypes();
+        }
+
+        public int ProjectTypeKey
+        {
+            get
+            {
+                int projectTypeKey = 0;
+                if (Request["id"] != null && int.TryParse(Request["id"], out projectTypeKey))
+                    return projectTypeKey;
+                else
+                    return projectTypeKey;
+
+            }
         }
     }
 }
