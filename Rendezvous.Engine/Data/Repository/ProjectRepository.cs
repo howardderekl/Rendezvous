@@ -14,14 +14,14 @@ namespace Rendezvous.Engine.Data.Repository
                    where prj.Active
                    select new Slide()
                    {
-                       FigureUrl = "~/Projects/ProjectDetails.aspx?id=" + prj.ProjectKey,
+                       FigureUrl = "~/Projects/Details/" + prj.ProjectKey,
                        SlideCaption = prj.Title,
                        FigureImgUrl = prj.ProjectImages
                                          .FirstOrDefault(i => i.DefaultImage || i.SortOrder == 0)
                                          .ImagePath ?? "",
                        SlideDescription = prj.Description,
                        HasReadMore = true,
-                       ReadMoreUrl = "~/Projects/ProjectDetails.aspx?id=" + prj.ProjectKey
+                       ReadMoreUrl = "~/Projects/Details/" + prj.ProjectKey
                    };
 
             return projects;

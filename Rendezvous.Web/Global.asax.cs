@@ -37,7 +37,7 @@ namespace Rendezvous.Web
             
 
             
-            AddPageWithIdRoute("ProjectDetails", "Projects/{id}", "~/Projects/ProjectDetails.aspx?id={id}");
+            AddPageWithIdRoute("ProjectDetails", "Projects/Details/{id}", "~/Projects/ProjectDetails.aspx");
 		    
 			//AddPageWithIdRoute("EditBatch", "Batches/{id}", "~/BatchPages/EditBatch.aspx");
 
@@ -78,11 +78,7 @@ namespace Rendezvous.Web
 					new Route(url, new GeneralRouteHandler(path)));
 		}
 
-		private static void AddGeneralRoute(string routeName, string url)
-		{
-			AddGeneralRoute(routeName, url, "~/" + url + ".aspx");
-		}
-
+		
 		protected void Session_Start(object sender, EventArgs e)
 		{
 

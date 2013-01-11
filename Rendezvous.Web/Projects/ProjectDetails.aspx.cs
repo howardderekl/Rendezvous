@@ -7,10 +7,11 @@ using System.Web.UI.WebControls;
 using Rendezvous.Engine.Data.Entity;
 using Rendezvous.Engine.Data.Repository;
 using Rendezvous.Web.Core;
+using Rendezvous.Web.Core.Routing;
 
 namespace Rendezvous.Web.Projects
 {
-    public partial class ProjectDetails : PreLoginBasePage
+    public partial class ProjectDetails : PreLoginBasePage, IPageWithId
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,9 +19,9 @@ namespace Rendezvous.Web.Projects
 
             if (!IsPostBack)
             {
-                if (reqID != 0)
+                if (CurrentProjectKey != 0)
                 {
-                    BindProjectInformation(reqID);
+                    BindProjectInformation(CurrentProjectKey);
                 }
                 else
                 {
@@ -66,23 +67,9 @@ namespace Rendezvous.Web.Projects
             rlvCarousel.DataBind();
         }
 
-        public int reqID {
-            get
-            {
-                if (Request["id"] == null)
-                    return 0;
-                else
-                {
-                    int valInt;
-                    if (int.TryParse(Request["id"], out valInt))
-                        return valInt;
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                
-            }
+        public int CurrentProjectKey {
+            get { return UrlId; }
         }
+        public int UrlId { get; set;}
     }
 }

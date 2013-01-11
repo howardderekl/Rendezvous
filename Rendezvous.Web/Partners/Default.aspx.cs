@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Rendezvous.Engine.Data.Repository;
 using Rendezvous.Web.Core;
 
 namespace Rendezvous.Web.Partners
@@ -13,6 +14,11 @@ namespace Rendezvous.Web.Partners
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void rlvPartnerTypesList_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
+        {
+            rlvPartnerTypesList.DataSource = PartnerTypeRepository.GetPartnerTypes();
         }
     }
 }

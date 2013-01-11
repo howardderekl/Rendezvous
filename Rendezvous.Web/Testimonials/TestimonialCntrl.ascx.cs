@@ -1,10 +1,12 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Rendezvous.Engine.Data.Repository;
+using Rendezvous.Web.Core.Routing;
 
 namespace Rendezvous.Web.Testimonials
 {
@@ -17,20 +19,19 @@ namespace Rendezvous.Web.Testimonials
 
         protected void rlvTestimonial_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
         {
-            rlvTestimonial.DataSource = ShowAll ? TestimonialRepository.GetAllActiveTestimonials() : TestimonialRepository.GetTestimonialByProjectKey(ProjectKey);
+            rlvTestimonial.DataSource = ShowAll ? TestimonialRepository.GetAllActiveTestimonials() : TestimonialRepository.GetTestimonialByProjectKey(RequestedProjectKey);
         }
+        
+        public bool ShowAll { get; set; }
 
-        private int _ProjectKey = 0;
-        public int ProjectKey {
+        public int RequestedProjectKey {
             get
             {
-                if(_ProjectKey == 0)
-                    _ProjectKey = Request["id"] == "" ? 0 : int.Parse(Request["id"]);
-
-                return _ProjectKey;
+                //Get this.Page Cast to an IPageWithId
+                var thisPage = (IPageWithId) this.Page;
+                //Grab the UrlId from that object
+                return thisPage.UrlId;
             }
-            set { _ProjectKey = value; }
         }
-        public bool ShowAll { get; set; }
     }
 }

@@ -1,0 +1,5 @@
+Insert into PartnerType (Title) values ('Building Partners')
+Insert into PartnerType (Title) values ('Architects')
+Insert into PartnerType (Title) values ('Interior Designers')
+Insert into PartnerType (Title) values ('Photographers')
+Insert into PartnerType (Title) values ('Landscape Architects')
