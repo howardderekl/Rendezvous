@@ -12,5 +12,17 @@ namespace Rendezvous.Engine.Data.Repository
         {
             return Db.PartnerTypes.OrderBy(pt => pt.Title);
         }
+
+        public static object GetNestedPartnersByType()
+        {
+            return from p in Db.PartnerTypes
+                   orderby p.Title
+                   select new
+                       {
+                           p.PartnerTypeKey,
+                           p.Title,
+                           Partnerlist = p.Partners
+                       };
+        }
     }
 }
