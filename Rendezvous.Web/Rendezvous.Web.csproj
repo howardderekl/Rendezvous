@@ -167,6 +167,13 @@
     <Compile Include="Partners\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Partners\PartnerDetails.aspx.cs">
+      <DependentUpon>PartnerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partners\PartnerDetails.aspx.designer.cs">
+      <DependentUpon>PartnerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Projects\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +244,7 @@
     <Content Include="Navigation\MarketingNavigation.ascx" />
     <Content Include="OurProcess\Default.aspx" />
     <Content Include="Partners\Default.aspx" />
+    <Content Include="Partners\PartnerDetails.aspx" />
     <Content Include="portfolio.html" />
     <Content Include="Projects\Default.aspx" />
     <Content Include="Projects\images\BLYNSY\Home1.jpg" />
