@@ -4,9 +4,9 @@
 <%@ Register Src="~/Testimonials/TestimonialCntrl.ascx" TagPrefix="uc1" TagName="TestimonialCntrl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
-    <link rel="stylesheet" href='<%=Url.Content("~/styles/flexslider.css") %>' type="text/css" media="all" />
-    <script src="~/scripts/jquery-flexslider.min.js"></script>
-    <script src="~/scripts/jquery-flexslider-projectdetails.js"></script>
+    <link rel="stylesheet" href='<%=ResolveClientUrl("~/styles/flexslider.css") %>' type="text/css" media="all" />
+    <script src='<%=ResolveClientUrl("~/scripts/jquery-flexslider.min.js") %>'></script>
+    <script src='<%=ResolveClientUrl("~/scripts/jquery-flexslider-projectdetails.js") %>'></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="content">

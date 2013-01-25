@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Marketing.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Rendezvous.Web.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
     <!-- HOMEPAGE ONLY -->
-    <link rel="stylesheet" href="styles/flexslider.css" type="text/css" media="all">
-    <script src="scripts/jquery-flexslider.min.js"></script>
-    <script src="scripts/jquery-flexslider-setup.js"></script>
+    <link rel="stylesheet" href='<%=ResolveClientUrl("~/styles/flexslider.css")%>' type="text/css" media="all">
+    <script src='<%=ResolveClientUrl("~/scripts/jquery-flexslider.min.js")%>'></script>
+    <script src='<%=ResolveClientUrl("~/scripts/jquery-flexslider-setup.js")%>'></script>
     <!-- END HOMEPAGE ONLY -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">

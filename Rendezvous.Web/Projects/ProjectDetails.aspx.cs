@@ -34,7 +34,7 @@ namespace Rendezvous.Web.Projects
 
         private void DisplayInvalidProjectKey()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void BindProjectInformation(int projectKey)

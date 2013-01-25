@@ -8,11 +8,6 @@ namespace Rendezvous.Web.Core
 {
 	public class BaseMasterPage : System.Web.UI.MasterPage
 	{
-        public RoutingHelper Routing { get; set; }
-
-		public BaseMasterPage()
-		{
-			Routing = new RoutingHelper();
-		}
+        
 	}
 }

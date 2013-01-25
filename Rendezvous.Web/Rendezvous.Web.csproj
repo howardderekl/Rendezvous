@@ -128,7 +128,6 @@
     </Compile>
     <Compile Include="Core\Routing\GeneralRouteHandler.cs" />
     <Compile Include="Core\Routing\IPageWithId.cs" />
-    <Compile Include="Core\Routing\RoutingHelper.cs" />
     <Compile Include="Core\Routing\SingleIdRouteHandler.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -332,7 +331,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
