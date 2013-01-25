@@ -38,6 +38,7 @@ namespace Rendezvous.Web
 
             
             AddPageWithIdRoute("ProjectDetails", "Projects/Details/{id}", "~/Projects/ProjectDetails.aspx");
+            AddPageWithIdRoute("PartnerDetails", "Partners/Details/{id}", "~/Partners/PartnerDetails.aspx");
             AddPageWithIdRoute("PartnerFiltered", "Partners/{id}", "~/Partners/Default.aspx");
 
 		    
