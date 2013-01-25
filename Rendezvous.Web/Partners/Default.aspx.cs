@@ -22,9 +22,9 @@ namespace Rendezvous.Web.Partners
             rlvPartnerTypesList.DataSource = PartnerTypeRepository.GetPartnerTypes();
         }
 
-        protected void rlvPartnerList_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
+        protected void rlvPartnerListDetails_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
         {
-            rlvPartnerList.DataSource = PartnerTypeRepository.GetNestedPartnersByType();
+            rlvPartnerListDetails.DataSource = PartnerRepository.GetPartnerList();
         }
 
         

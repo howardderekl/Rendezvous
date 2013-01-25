@@ -3,39 +3,47 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="content">
-        
-            <h1>Our Partners</h1>
-            <telerik:RadListView runat="server" ID="rlvPartnerList" ItemPlaceholderID="PartnerTypeTitlePlaceHolder" OnNeedDataSource="rlvPartnerList_NeedDataSource">
-                <LayoutTemplate>
-                        <h2 runat="server" id="PartnerTypeTitlePlaceHolder"></h2>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    <h2><asp:Literal runat="server" ID="litartnerTypeTitle" Text='<%# Bind("Title") %>'></asp:Literal></h2>
-                    <telerik:RadListView runat="server" ID="rlvPartnerListDetails" ItemPlaceholderID="PartnerDetailsPlaceHolder" DataSource='<%# Eval("PartnerList") %>'>
-                        <LayoutTemplate>
-                            <section id="portfolio" class="clear">
-                                <ul>
-                                    <li runat="server" id="PartnerDetailsPlaceHolder"></li>
-                                </ul>
-                            </section>
-                        </LayoutTemplate>
-                        <ItemTemplate>
-                            <li class="first">
-                                <article>
-                                    <figure>
-                                    <figcaption>
-                                        <header><asp:Literal runat="server" ID="litPartnerName" Text='<%# Bind("Name") %>'/></header>
-                                        <p><asp:Literal runat="server" ID="litPartnerDesc" Text='<%# Bind("Description") %>'></asp:Literal></p>
-                                        <footer><asp:HyperLink runat="server" ID="hlPartnerDetails" Text="View Partner Details &raquo;" NavigateUrl='<%# string.Format("~/Partners/Details/{0}", Eval("PartnerKey")) %>' /></footer>
-                                    </figcaption>
-                                    </figure>
-                                </article>
-                            </li>
-                        </ItemTemplate>
-                    </telerik:RadListView>
-                </ItemTemplate>   
-            </telerik:RadListView>
-        
+        <telerik:RadListView runat="server" ID="rlvPartnerListDetails" ItemPlaceholderID="PartnerDetailsPlaceHolder" OnNeedDataSource="rlvPartnerListDetails_NeedDataSource">
+            <LayoutTemplate>
+                <section id="portfolio" class="clear">
+                    <ul>
+                        <li runat="server" id="PartnerDetailsPlaceHolder"></li>
+                    </ul>
+                </section>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <li class="first">
+                    <article>
+                        <figure>
+                            <figcaption>
+                                <header>
+                                    <asp:Literal runat="server" ID="litPartnerName" Text='<%# Bind("Name") %>' /></header>
+                                <p>
+                                    <asp:Literal runat="server" ID="litPartnerDesc" Text='<%# Bind("Description") %>'></asp:Literal></p>
+                                <footer>
+                                    <asp:HyperLink runat="server" ID="hlPartnerDetails" Text="View Partner Details &raquo;" NavigateUrl='<%# string.Format("~/Partners/Details/{0}", Eval("PartnerKey")) %>' /></footer>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </li>
+            </ItemTemplate>
+            <AlternatingItemTemplate>
+                <li>
+                    <article>
+                        <figure>
+                            <figcaption>
+                                <header>
+                                    <asp:Literal runat="server" ID="litPartnerName" Text='<%# Bind("Name") %>' /></header>
+                                <p>
+                                    <asp:Literal runat="server" ID="litPartnerDesc" Text='<%# Bind("Description") %>'></asp:Literal></p>
+                                <footer>
+                                    <asp:HyperLink runat="server" ID="hlPartnerDetails" Text="View Partner Details &raquo;" NavigateUrl='<%# string.Format("~/Partners/Details/{0}", Eval("PartnerKey")) %>' /></footer>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </li>
+            </AlternatingItemTemplate>
+        </telerik:RadListView>
     </div>
     <aside id="right_column">
         <h2 class="title">Partner Types</h2>
