@@ -129,6 +129,8 @@
     <Compile Include="Core\Routing\GeneralRouteHandler.cs" />
     <Compile Include="Core\Routing\IPageWithId.cs" />
     <Compile Include="Core\Routing\SingleIdRouteHandler.cs" />
+    <Compile Include="Core\Security\RendezvousMembershipProvider.cs" />
+    <Compile Include="Core\Security\RendezvousRoleProvider.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
